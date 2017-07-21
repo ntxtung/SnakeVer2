@@ -1,0 +1,11 @@
+   --------- SNAKE 2 -------- 
+------ GRAPHICS.H VERSION -------
+
+20/7/2017:
+- Snake2 begin
+- Build Graphic Windows
+- Build some develop function: showGrid, showCross, showInfo
+
+21/7/2017:
+- Divided into small file
+- Sound added

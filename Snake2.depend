@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1500648678 source:d:\project\snake2\main.cpp
+	"Declaration.h"
+	"GraphicAPI.h"
+	"Develop.h"
+
+1500614510 source:d:\project\snake2\sound.cpp
+	<windows.h>
+	"Sound.h"
+
+1500614510 d:\project\snake2\sound.h
+
+1500648409 source:d:\project\snake2\graphicapi.cpp
+	"Declaration.h"
+	"GraphicAPI.h"
+
+1500648337 d:\project\snake2\declaration.h
+	<graphics.h>
+	<conio.h>
+	<dos.h>
+	<stdlib.h>
+	<iostream>
+
+1500648502 d:\project\snake2\graphicapi.h
+
+1500648579 source:d:\project\snake2\develop.cpp
+	"Declaration.h"
+	"GraphicAPI.h"
+
+1500648614 d:\project\snake2\develop.h
+
