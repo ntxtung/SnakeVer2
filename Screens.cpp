@@ -33,7 +33,7 @@ void playScreen ()
 {
     stopSound(); //turn off music
     cleardevice(); //clear menu screen
-    while (gameOver!=true)
+    while (1)
         draw();
 
     cout << " > GAME OVER\n";

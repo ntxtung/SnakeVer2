@@ -153,32 +153,32 @@ void drawScreen()
          {
             switch (zone[i][j])
             {
-                case char(0):
+                case 0: // None
                 {
                     showUnit(scrX + j, scrY + i, 1, BLACK);
                     break;
                 }
-                case char(1):
+                case 1: // Danger block
                 {
                     showUnit(scrX + j, scrY + i, 1, RED);
                     break;
                 }
-                case char(2):
+                case 2: // Head
                 {
                     showUnit(scrX + j, scrY + i, 1, GREEN);
                     break;
                 }
-                case char(3):
+                case 3: // Tail
                 {
                     showUnit(scrX + j, scrY + i, 1, GREEN);
                     break;
                 }
-                case char(4):
+                case 4: // Food
                 {
                     showUnit(scrX + j, scrY + i, 1, BLUE);
                     break;
                 }
-                default:
+                default: // None
                 {
                     showUnit(scrX + j, scrY + i, 1, BLACK);
                 }
@@ -191,12 +191,13 @@ void draw()
 {
     makePlayZone();
     getKey();
-    if (gameStart)
+    develop();
+    if (1)
     {
         snakeMove();
-        makePlayZone();
-        develop();
-
+        makeSnake();
+        drawScreen();
+        deleteSnake();
         Sleep(40);
     }
 }
