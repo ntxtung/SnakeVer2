@@ -21,18 +21,24 @@ const int unitLength = W/40;
 const int W_unit = W/unitLength;
 const int H_unit = H/unitLength;
 
-const int scrX = 3;    //Screen LeftTop X
-const int scrY = 2;    //Screen LeftTop Y
+const int playZoneW = 30;
+const int playZoneH = 21;
+
+const int scrX = 1;    //Screen LeftTop X
+const int scrY = 1;    //Screen LeftTop Y
 
 ///      SOUND      | FILENAME
  #define SOUND_MENU "soundtrack\\StartScreen.wav"
 /////////////////////////////////
 
 #include <graphics.h>
-#include <conio.h>
+//#include <conio.h>
 #include <dos.h>
 #include <stdlib.h>
 #include <iostream>
-
+//#include <conio.h>
+#include <windows.h>
+#include <vector>
+#include <time.h>
 
 #endif // DECLARATION_H_INCLUDED

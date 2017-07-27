@@ -11,11 +11,22 @@ void setup()
     initwindow(W, H);
     //initgraph(&gd, &gm, "BGI");
 }
+/**
+    From GraphicAPI, put a FlatUnit to (x,y) block
 
-void showUnit(int x, int y)
+     @param  X Position
+     @param  Y Position
+ */
+
+void showUnit(int x, int y, int pattern, int color)
 {
+    setfillstyle(pattern,color);
+    bar(x * unitLength + 1 , y * unitLength + 1 , x * unitLength + unitLength , y * unitLength + unitLength);
 
-    bar(x * unitLength , y * unitLength, x * unitLength + unitLength, y * unitLength + unitLength);
+}
 
-
+void cls()
+{
+    setfillstyle(1,BLACK);
+    bar(5,5,playZoneW*unitLength-5,playZoneH*unitLength-5);
 }
