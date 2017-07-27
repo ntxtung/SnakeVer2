@@ -29,6 +29,7 @@ char direct ='S';
 bool gameOver = false;
 bool gameStart = false;
 
+
 //------------------------------
 void getKey()
 {
@@ -131,10 +132,11 @@ void foodSpawn()
     do
     {
         srand(snakeX + snakeY + numTails + time(NULL)); //random seed
-        foodX = 1 + rand() % W;
-        foodY = 1 + rand() % H;
+        foodX = 1 + rand() % playZoneW;
+        foodY = 1 + rand() % playZoneH;
     }
     while (zone[foodY][foodX] !=0 || (foodX==snakeX && foodY==snakeY));
+
     zone[foodY][foodX]=4;
 }
 //---------------------------------
@@ -186,16 +188,40 @@ void drawScreen()
         }
     }
 }
+// Game Logical
+void logic()
+{
+    //safeBorderLogic();
+
+    if (snakeX == foodX && snakeY == foodY)
+    {
+        score += 10;
+        numTails++;
+
+        foodSpawn();
+    }
+
+    if (zone[snakeY][snakeX] == 1)
+        gameOver = true;
+}
+//------------------------------
+void init()
+{
+    makePlayZone();
+    develop();
+    foodSpawn();
+}
 //--------------------------------
 void draw()
 {
-    makePlayZone();
     getKey();
-    develop();
+
     if (1)
     {
         snakeMove();
         makeSnake();
+
+        logic();
         drawScreen();
         deleteSnake();
         Sleep(40);

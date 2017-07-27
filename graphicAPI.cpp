@@ -25,8 +25,4 @@ void showUnit(int x, int y, int pattern, int color)
 
 }
 
-void cls()
-{
-    setfillstyle(1,BLACK);
-    bar(5,5,playZoneW*unitLength-5,playZoneH*unitLength-5);
-}
+

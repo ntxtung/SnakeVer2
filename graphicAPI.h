@@ -3,7 +3,7 @@
 
 void setup();
 void showUnit(int x, int y, int pattern, int color);
-void cls();
+
 
 
 
@@ -16,9 +16,9 @@ void cls();
 /*
 enum fill_styles
 {
-   EMPTY_FILL,
-   SOLID_FILL,
-   LINE_FILL,
+   EMPTY_FILL, // 0
+   SOLID_FILL, // 1
+   LINE_FILL,  // 2
    LTSLASH_FILL,
    SLASH_FILL,
    BKSLASH_FILL,

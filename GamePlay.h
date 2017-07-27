@@ -6,6 +6,7 @@ void getKey();
 void snakeMove();
 void makePlayZone();
 void draw();
+void init();
 
 
 

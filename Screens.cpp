@@ -33,6 +33,7 @@ void playScreen ()
 {
     stopSound(); //turn off music
     cleardevice(); //clear menu screen
+    init();
     while (1)
         draw();
 
