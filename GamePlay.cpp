@@ -29,7 +29,34 @@ char direct ='S';
 bool gameOver = false;
 bool gameStart = false;
 
-
+//----------------------------
+void safeBorderLogic()
+{
+    // Left side
+    if (snakeX == W && zone[snakeY][snakeX] != 1)
+    {
+        //screen[snakeY][snakeX] = char(SCREEN_LEFT);
+        snakeX = 1;
+    }
+    // Right side
+    if (snakeX == 0 && zone[snakeY][snakeX] != 1)
+    {
+        //screen[snakeY][snakeX] = char(SCREEN_RIGHT);
+        snakeX = W-1;
+    }
+    // Bot side
+    if (snakeY == H && zone[snakeY][snakeX] != 1)
+    {
+        //screen[snakeY][snakeX] = char(SCREEN_BOTTOM);
+        snakeY = 1;
+    }
+    // Top side
+    if (snakeY == 0 && zone[snakeY][snakeX] != 1)
+    {
+        //screen[snakeY][snakeX] = char(SCREEN_TOP);
+        snakeY = H-1;
+    }
+}
 //------------------------------
 void getKey()
 {
@@ -143,7 +170,7 @@ void foodSpawn()
 void makePlayZone()
 {
     for (int i=0; i<=5; i++)
-        rectangle(scrX * unitLength - i, scrY * unitLength - i, playZoneW * unitLength + i, playZoneH * unitLength + i);
+        rectangle(scrX * unitLength - i, scrY * unitLength - i, (scrX + playZoneW) * unitLength + i, (scrY + playZoneH) * unitLength + i);
 }
 //--------------------------------
 void drawScreen()
@@ -191,7 +218,7 @@ void drawScreen()
 // Game Logical
 void logic()
 {
-    //safeBorderLogic();
+    safeBorderLogic();
 
     if (snakeX == foodX && snakeY == foodY)
     {

@@ -42,6 +42,8 @@
 		<Unit filename="Declaration.h" />
 		<Unit filename="Develop.cpp" />
 		<Unit filename="Develop.h" />
+		<Unit filename="GamePlay.cpp" />
+		<Unit filename="GamePlay.h" />
 		<Unit filename="Screens.cpp" />
 		<Unit filename="Screens.h" />
 		<Unit filename="Sound.cpp" />
