@@ -21,7 +21,10 @@ void setup()
 void showUnit(int x, int y, int pattern, int color)
 {
     setfillstyle(pattern,color);
-    bar((x + scrX -1) * unitLength + 1 , (y + scrY -1) * unitLength + 1 , (x + scrX -1) * unitLength + unitLength , (y + scrY -1) * unitLength + unitLength);
+    bar((x + scrX -1) * unitLength + 1 ,
+        (y + scrY -1) * unitLength + 1 ,
+        (x + scrX -1) * unitLength + unitLength ,
+        (y + scrY -1) * unitLength + unitLength);
 
 }
 

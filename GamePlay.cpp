@@ -33,14 +33,14 @@ bool gameStart = false;
 void safeBorderLogic()
 {
     // Left side
-    if (snakeX == 1 && zone[snakeY][snakeX] != 1)
+    if (snakeX == 0 && zone[snakeY][snakeX] != 1)
     {
         snakeX = playZoneW - 1;
     }
     // Right side
     if (snakeX == playZoneW && zone[snakeY][snakeX] != 1)
     {
-        snakeX = 1;
+        snakeX = 0;
     }
     // Bot side
     if (snakeY == playZoneH && zone[snakeY][snakeX] != 1)
@@ -48,7 +48,7 @@ void safeBorderLogic()
         snakeY = 1;
     }
     // Top side
-    if (snakeY == 1 && zone[snakeY][snakeX] != 1)
+    if (snakeY == 0 && zone[snakeY][snakeX] != 1)
     {
         snakeY = playZoneH - 1 ;
     }
@@ -155,8 +155,8 @@ void foodSpawn()
     do
     {
         srand(snakeX + snakeY + time(NULL)); //random seed
-        foodX = 1 + rand() % (playZoneW);
-        foodY = 1 + rand() % (playZoneH);
+        foodX = 1 + rand() % (playZoneW-1);
+        foodY = 1 + rand() % (playZoneH-1);
     }
     while (zone[foodY][foodX] !=0 || (foodX==snakeX && foodY==snakeY));
 
@@ -167,7 +167,7 @@ void foodSpawn()
 void makePlayZone()
 {
     for (int i=0; i<5; i++)
-        rectangle(scrX * unitLength - i, scrY * unitLength - i, (scrX + playZoneW) * unitLength + i, (scrY + playZoneH) * unitLength + i);
+        rectangle(scrX * unitLength - i, scrY * unitLength - i, (scrX + playZoneW -1 ) * unitLength + i, (scrY + playZoneH -1 ) * unitLength + i);
 }
 //--------------------------------
 void drawScreen()
@@ -206,7 +206,7 @@ void drawScreen()
                 }
                 default: // None
                 {
-                    showUnit(scrX + j, scrY + i, 1, BLACK);
+                    //showUnit(scrX + j, scrY + i, 1, BLACK);
                 }
             }
         }
