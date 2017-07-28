@@ -7,6 +7,7 @@
 #endif // CONSOLEAPI_H_INCLUDED
 
 
+
 using namespace std;
 
 
@@ -27,6 +28,7 @@ void showGrid(bool isOn)
     if (isOn==true)
     {
         setcolor(RED);
+
         for (int i=0; i<=W; i+=unitLength)
             line(i,0,i,H);
         for (int i=0; i<=H; i+=unitLength)
@@ -46,9 +48,31 @@ void showInfo(bool isOn)
     }
 }
 
+void gradientTest(bool isOn)
+{
+    if (isOn==true)
+    {
+        int b=0;
+        for (int i=0; i<=W; i++)
+        {
+            for (int j=0; j<=H; j++)
+            {
+                putpixel(i,j,RGB(i,j,b));
+
+            }
+            b+=3;
+        }
+
+    }
+}
+
+
+
 void develop()
 {
-    showInfo(true);
+    showInfo(false);
     showGrid(true);
+
     showCross(false);
+    gradientTest(false);
 }

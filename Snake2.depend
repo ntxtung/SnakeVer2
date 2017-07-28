@@ -1,8 +1,10 @@
 # depslib dependency file v1.0
-1500648678 source:d:\project\snake2\main.cpp
+1501240360 source:d:\project\snake2\main.cpp
 	"Declaration.h"
 	"GraphicAPI.h"
 	"Develop.h"
+	"GamePlay.h"
+	"Screens.h"
 
 1500614510 source:d:\project\snake2\sound.cpp
 	<windows.h>
@@ -10,22 +12,43 @@
 
 1500614510 d:\project\snake2\sound.h
 
-1500648409 source:d:\project\snake2\graphicapi.cpp
+1501239101 source:d:\project\snake2\graphicapi.cpp
 	"Declaration.h"
 	"GraphicAPI.h"
 
-1500648337 d:\project\snake2\declaration.h
+1501226510 d:\project\snake2\declaration.h
 	<graphics.h>
-	<conio.h>
 	<dos.h>
 	<stdlib.h>
 	<iostream>
+	<windows.h>
+	<vector>
+	<time.h>
 
-1500648502 d:\project\snake2\graphicapi.h
+1501175427 d:\project\snake2\graphicapi.h
 
-1500648579 source:d:\project\snake2\develop.cpp
+1501173755 source:d:\project\snake2\develop.cpp
 	"Declaration.h"
 	"GraphicAPI.h"
 
 1500648614 d:\project\snake2\develop.h
+
+1501175640 source:d:\project\snake2\screens.cpp
+	"Declaration.h"
+	"GraphicAPI.h"
+	"Sound.h"
+	"GamePlay.h"
+	"Screens.h"
+	<iostream>
+	<conio.h>
+	<windows.h>
+
+1500649862 d:\project\snake2\screens.h
+
+1501238873 source:d:\project\snake2\gameplay.cpp
+	"Declaration.h"
+	"GraphicAPI.h"
+	"Develop.h"
+
+1501175647 d:\project\snake2\gameplay.h
 

@@ -36,6 +36,20 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Linker>
+			<Add library="winmm" />
+		</Linker>
+		<Unit filename="Declaration.h" />
+		<Unit filename="Develop.cpp" />
+		<Unit filename="Develop.h" />
+		<Unit filename="GamePlay.cpp" />
+		<Unit filename="GamePlay.h" />
+		<Unit filename="Screens.cpp" />
+		<Unit filename="Screens.h" />
+		<Unit filename="Sound.cpp" />
+		<Unit filename="Sound.h" />
+		<Unit filename="graphicAPI.cpp" />
+		<Unit filename="graphicAPI.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
