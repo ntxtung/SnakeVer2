@@ -144,6 +144,14 @@ void saveTail ()
 void makeSnake()
 {
     zone[snakeY][snakeX] = 2;
+    for (int i = 0; i <= numTails-1; i++) // Tail
+    {
+        if (i>=1)
+            zone[tailY[i]][tailX[i]] = 3;
+        else
+            zone[tailY[i]][tailX[i]] = 2;
+    }
+
 }
 void deleteSnake()
 {
@@ -154,14 +162,14 @@ void foodSpawn()
 {
     do
     {
-        srand(snakeX + snakeY + time(NULL)); //random seed
+        srand(snakeX + snakeY + foodX + foodY + time(NULL)); //random seed
         foodX = 1 + rand() % (playZoneW-1);
         foodY = 1 + rand() % (playZoneH-1);
     }
     while (zone[foodY][foodX] !=0 || (foodX==snakeX && foodY==snakeY));
 
     zone[foodY][foodX]=4;
-    cout << "FoodX = " << foodX << " foodY = " << foodY << endl;
+    //cout << "FoodX = " << foodX << " foodY = " << foodY << endl;
 }
 //---------------------------------
 void makePlayZone()
@@ -170,6 +178,16 @@ void makePlayZone()
         rectangle(scrX * unitLength - i, scrY * unitLength - i, (scrX + playZoneW -1 ) * unitLength + i, (scrY + playZoneH -1 ) * unitLength + i);
 }
 //--------------------------------
+void showScore()
+{
+    for (int i=0; i<5; i++)
+        rectangle( (scrX + playZoneW + 1)  * unitLength - i,
+                   (scrY + 0) * unitLength - i,
+                   (scrX + playZoneW + 7 ) * unitLength + i,
+                   (scrY + 2) * unitLength + i);
+
+}
+//-------------------------------
 void drawScreen()
 {
     for (int i=1; i<playZoneH; i++)
@@ -191,7 +209,7 @@ void drawScreen()
                 }
                 case 2: // Head
                 {
-                    showUnit(scrX + j-1, scrY + i-1, 1, GREEN);
+                    showUnit(scrX + j-1, scrY + i-1, 1, RGB(0,155,155));
                     break;
                 }
                 case 3: // Tail
@@ -221,18 +239,18 @@ void logic()
     {
         score += 10;
         numTails++;
-
         foodSpawn();
     }
 
-    if (zone[snakeY][snakeX] == 1)
+    if (zone[snakeY][snakeX] == 1 || zone[snakeY][snakeX] == 3)
         gameOver = true;
 }
 //------------------------------
 void init()
 {
     makePlayZone();
-    //develop();
+    tailX.insert(tailX.begin(),snakeX-1);
+    tailY.insert(tailY.begin(),snakeY);
     foodSpawn();
 }
 //--------------------------------
@@ -240,15 +258,18 @@ void draw()
 {
     getKey();
 
-    if (1)
+    if (gameStart)
     {
+        develop();
         snakeMove();
         makeSnake();
 
         logic();
+        showScore();
         drawScreen();
         deleteSnake();
-        Sleep(40);
-        cout << "SnakeX = " << snakeX << " SnakeY = " << snakeY << endl;
+        saveTail();
+        Sleep(gameSpeed);
+        //cout << "SnakeX = " << snakeX << " SnakeY = " << snakeY << endl;
     }
 }
