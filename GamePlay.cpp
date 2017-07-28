@@ -20,7 +20,7 @@ int zone[playZoneH+1][playZoneW+1] = {0};
 // Zone 3 = snakeTail
 // Zone 4 = food
 
-int score = 0, snakeX = (playZoneW/2), snakeY = (playZoneH/2), foodX = 0, foodY = 0, gameSpeed = 30, timer = 0;
+int score = 0, snakeX = (playZoneW/2), snakeY = (playZoneH/2), foodX = 0, foodY = 0, gameSpeed = 0, timer = 0;
 int numTails = 1;
 
 vector <int> tailX, tailY;
@@ -143,6 +143,10 @@ void saveTail ()
 
 void makeSnake()
 {
+    for (int i = 0; i <= numTails-1; i++) // Tail
+    {
+        zone[tailY[i]][tailX[i]] = 3;
+    }
     zone[snakeY][snakeX] = 2;
 }
 void deleteSnake()
@@ -221,18 +225,18 @@ void logic()
     {
         score += 10;
         numTails++;
-
         foodSpawn();
     }
 
-    if (zone[snakeY][snakeX] == 1)
+    if (zone[snakeY][snakeX] == 1 || zone[snakeY][snakeX] == 3)
         gameOver = true;
 }
 //------------------------------
 void init()
 {
     makePlayZone();
-    //develop();
+    tailX.insert(tailX.begin(),snakeX-1);
+    tailY.insert(tailY.begin(),snakeY);
     foodSpawn();
 }
 //--------------------------------
@@ -248,7 +252,8 @@ void draw()
         logic();
         drawScreen();
         deleteSnake();
+        saveTail();
         Sleep(40);
-        cout << "SnakeX = " << snakeX << " SnakeY = " << snakeY << endl;
+        //cout << "SnakeX = " << snakeX << " SnakeY = " << snakeY << endl;
     }
 }
