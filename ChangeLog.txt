@@ -9,3 +9,9 @@
 21/7/2017:
 - Divided into small file
 - Sound added
+
+27/7/2017:
+- Move some function of ver1 to ver2 (a lot of bug)
+
+28/7/2017:
+- Bug eliminated (almost)
