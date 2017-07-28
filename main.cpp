@@ -30,6 +30,10 @@ int main()
     setup();
     develop();
 
+    makePlayZone();
+    for (int i=1; i<=playZoneW; i++)
+        for (int j=1; j<=playZoneH; j++)
+            showUnit(i,j,1,YELLOW);
     playScreen();
 
 

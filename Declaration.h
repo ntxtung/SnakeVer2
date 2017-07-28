@@ -22,7 +22,7 @@ const int W_unit = W/unitLength;
 const int H_unit = H/unitLength;
 
 const int playZoneW = 30;
-const int playZoneH = 21;
+const int playZoneH = 20;
 
 const int scrX = 1;    //Screen LeftTop X
 const int scrY = 1;    //Screen LeftTop Y

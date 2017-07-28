@@ -13,7 +13,7 @@
 using namespace std;
 
 //int screen[playZoneH][playZoneW] = {};
-int zone[playZoneH][playZoneW] = {0};
+int zone[playZoneH+1][playZoneW+1] = {0};
 // Zone 0 = void
 // Zone 1 = die
 // Zone 2 = snakeHead
@@ -33,28 +33,24 @@ bool gameStart = false;
 void safeBorderLogic()
 {
     // Left side
-    if (snakeX == W && zone[snakeY][snakeX] != 1)
+    if (snakeX == 1 && zone[snakeY][snakeX] != 1)
     {
-        //screen[snakeY][snakeX] = char(SCREEN_LEFT);
-        snakeX = 1;
+        snakeX = playZoneW - 1;
     }
     // Right side
-    if (snakeX == 0 && zone[snakeY][snakeX] != 1)
+    if (snakeX == playZoneW && zone[snakeY][snakeX] != 1)
     {
-        //screen[snakeY][snakeX] = char(SCREEN_RIGHT);
-        snakeX = W-1;
+        snakeX = 1;
     }
     // Bot side
-    if (snakeY == H && zone[snakeY][snakeX] != 1)
+    if (snakeY == playZoneH && zone[snakeY][snakeX] != 1)
     {
-        //screen[snakeY][snakeX] = char(SCREEN_BOTTOM);
         snakeY = 1;
     }
     // Top side
-    if (snakeY == 0 && zone[snakeY][snakeX] != 1)
+    if (snakeY == 1 && zone[snakeY][snakeX] != 1)
     {
-        //screen[snakeY][snakeX] = char(SCREEN_TOP);
-        snakeY = H-1;
+        snakeY = playZoneH - 1 ;
     }
 }
 //------------------------------
@@ -158,53 +154,54 @@ void foodSpawn()
 {
     do
     {
-        srand(snakeX + snakeY + numTails + time(NULL)); //random seed
-        foodX = 1 + rand() % playZoneW;
-        foodY = 1 + rand() % playZoneH;
+        srand(snakeX + snakeY + time(NULL)); //random seed
+        foodX = 1 + rand() % (playZoneW);
+        foodY = 1 + rand() % (playZoneH);
     }
     while (zone[foodY][foodX] !=0 || (foodX==snakeX && foodY==snakeY));
 
     zone[foodY][foodX]=4;
+    cout << "FoodX = " << foodX << " foodY = " << foodY << endl;
 }
 //---------------------------------
 void makePlayZone()
 {
-    for (int i=0; i<=5; i++)
+    for (int i=0; i<5; i++)
         rectangle(scrX * unitLength - i, scrY * unitLength - i, (scrX + playZoneW) * unitLength + i, (scrY + playZoneH) * unitLength + i);
 }
 //--------------------------------
 void drawScreen()
 {
-    for (int i=0; i<=playZoneH; i++)
+    for (int i=1; i<playZoneH; i++)
     {
 
-        for (int j=0; j<=playZoneW; j++)
+        for (int j=1; j<playZoneW; j++)
          {
             switch (zone[i][j])
             {
                 case 0: // None
                 {
-                    showUnit(scrX + j, scrY + i, 1, BLACK);
+                    showUnit(scrX + j -1, scrY + i-1, 1, BLACK);
                     break;
                 }
                 case 1: // Danger block
                 {
-                    showUnit(scrX + j, scrY + i, 1, RED);
+                    showUnit(scrX + j-1, scrY + i-1, 1, RED);
                     break;
                 }
                 case 2: // Head
                 {
-                    showUnit(scrX + j, scrY + i, 1, GREEN);
+                    showUnit(scrX + j-1, scrY + i-1, 1, GREEN);
                     break;
                 }
                 case 3: // Tail
                 {
-                    showUnit(scrX + j, scrY + i, 1, GREEN);
+                    showUnit(scrX + j-1, scrY + i-1, 1, GREEN);
                     break;
                 }
                 case 4: // Food
                 {
-                    showUnit(scrX + j, scrY + i, 1, BLUE);
+                    showUnit(scrX + j-1, scrY + i-1, 1, BLUE);
                     break;
                 }
                 default: // None
@@ -235,7 +232,7 @@ void logic()
 void init()
 {
     makePlayZone();
-    develop();
+    //develop();
     foodSpawn();
 }
 //--------------------------------
@@ -252,5 +249,6 @@ void draw()
         drawScreen();
         deleteSnake();
         Sleep(40);
+        cout << "SnakeX = " << snakeX << " SnakeY = " << snakeY << endl;
     }
 }
