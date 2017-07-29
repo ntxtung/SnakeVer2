@@ -8,11 +8,11 @@
 
 void setup()
 {
-    initwindow(W, H);
+    initwindow(W, H, "THIS IS A SNAKE GAME!");
     //initgraph(&gd, &gm, "BGI");
 }
 /**
-    From GraphicAPI, put a FlatUnit to (x,y) block
+    From GraphicAPI, put a FlatUnit to (x,y) block in play zone
 
      @param  X Position
      @param  Y Position
@@ -28,4 +28,19 @@ void showUnit(int x, int y, int pattern, int color)
 
 }
 
+void gradientStyle1()
+{
+    int b=0;
+    int g=0;
+    for (int i=0; i<=W; i+=W/400)
+    {
+        for (int j=0; j<=H; j+=W/400)
+        {
+
+            putpixel(i,j,RGB(i,g,b));
+            g++;
+        }
+        b++;
+    }
+}
 

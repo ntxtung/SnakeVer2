@@ -10,6 +10,7 @@
     #include "Develop.h"
 #endif // DEVELOP_H_INCLUDED
 
+
 using namespace std;
 
 //int screen[playZoneH][playZoneW] = {};
@@ -178,7 +179,7 @@ void makePlayZone()
         rectangle(scrX * unitLength - i, scrY * unitLength - i, (scrX + playZoneW -1 ) * unitLength + i, (scrY + playZoneH -1 ) * unitLength + i);
 }
 //--------------------------------
-void showScore()
+void showScoreBoard()
 {
     for (int i=0; i<5; i++)
         rectangle( (scrX + playZoneW + 1)  * unitLength - i,
@@ -186,6 +187,20 @@ void showScore()
                    (scrX + playZoneW + 7 ) * unitLength + i,
                    (scrY + 2) * unitLength + i);
 
+}
+//------------------------------
+void showScoreValue()
+{
+    char Score[5]={};
+    string str;
+    int temp = score;
+
+    sprintf(Score,"%d",score);
+
+    settextstyle(BOLD_FONT, HORIZ_DIR, 4);
+    outtextxy((scrX + playZoneW + 1.4)  * unitLength + 10,
+              (scrY + 0.6) * unitLength,
+               Score);
 }
 //-------------------------------
 void drawScreen()
@@ -249,6 +264,7 @@ void logic()
 void init()
 {
     makePlayZone();
+    showScoreBoard();
     tailX.insert(tailX.begin(),snakeX-1);
     tailY.insert(tailY.begin(),snakeY);
     foodSpawn();
@@ -265,7 +281,7 @@ void draw()
         makeSnake();
 
         logic();
-        showScore();
+        showScoreValue();
         drawScreen();
         deleteSnake();
         saveTail();

@@ -15,3 +15,9 @@
 
 28/7/2017:
 - Bug eliminated (almost)
+
+29/7/2017:
+- StartScreen sound added
+- Score added
+- Main Menu added
+- Game logo added

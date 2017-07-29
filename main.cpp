@@ -27,14 +27,18 @@ using namespace std;
 
 int main()
 {
+    //ShowWindow(FindWindowA("ConsoleWindowClass", NULL), false); // Dont open the console
+
     setup();
     develop();
-
+    mainMenu();
     playScreen();
 
 
 
     getch();
     closegraph();
+
+    //FreeConsole();
     return 0;
 }

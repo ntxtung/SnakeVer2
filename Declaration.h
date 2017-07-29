@@ -34,11 +34,13 @@ const int scrY = 1;    //Screen LeftTop Y
 #include <graphics.h>
 //#include <conio.h>
 #include <dos.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
 //#include <conio.h>
 #include <windows.h>
 #include <vector>
 #include <time.h>
+#include <string>
 
 #endif // DECLARATION_H_INCLUDED
