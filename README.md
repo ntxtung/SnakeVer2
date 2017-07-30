@@ -1,4 +1,4 @@
-# Snake 1.0b
+# Snake 2.0b
 What a famous game! Why dont we build the own one?
 # Environment
   + IDE: CodeBlocks 16.01
