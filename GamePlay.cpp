@@ -10,6 +10,16 @@
     #include "Develop.h"
 #endif // DEVELOP_H_INCLUDED
 
+#ifndef SOUND_H_INCLUDED
+    #include "Sound.h"
+#endif // SOUND_H_INCLUDED
+
+#ifndef SCREENS_H_INCLUDED
+    #include "Screens.h"
+#endif // SCREEN_H_INCLUDED
+
+
+
 using namespace std;
 
 //int screen[playZoneH][playZoneW] = {};
@@ -178,7 +188,7 @@ void makePlayZone()
         rectangle(scrX * unitLength - i, scrY * unitLength - i, (scrX + playZoneW -1 ) * unitLength + i, (scrY + playZoneH -1 ) * unitLength + i);
 }
 //--------------------------------
-void showScore()
+void showScoreBoard()
 {
     for (int i=0; i<5; i++)
         rectangle( (scrX + playZoneW + 1)  * unitLength - i,
@@ -186,6 +196,20 @@ void showScore()
                    (scrX + playZoneW + 7 ) * unitLength + i,
                    (scrY + 2) * unitLength + i);
 
+}
+//------------------------------
+void showScoreValue()
+{
+    char Score[5]={};
+    string str;
+    int temp = score;
+
+    sprintf(Score,"%d",score);
+
+    settextstyle(BOLD_FONT, HORIZ_DIR, 4);
+    outtextxy((scrX + playZoneW + 1.4)  * unitLength + 10,
+              (scrY + 0.6) * unitLength,
+               Score);
 }
 //-------------------------------
 void drawScreen()
@@ -230,6 +254,7 @@ void drawScreen()
         }
     }
 }
+
 // Game Logical
 void logic()
 {
@@ -238,17 +263,44 @@ void logic()
     if (snakeX == foodX && snakeY == foodY)
     {
         score += 10;
+        playSound("soundtrack\\eat_sound.wav",0);
         numTails++;
         foodSpawn();
     }
 
     if (zone[snakeY][snakeX] == 1 || zone[snakeY][snakeX] == 3)
-        gameOver = true;
+    {
+        playSound("soundtrack\\hit_sound2.wav",0);
+        //Dead effect
+        cleardevice();
+
+        Sleep(100);
+        drawScreen();
+        makePlayZone();
+        Sleep(300);
+
+
+        cleardevice();
+        Sleep(100);
+        drawScreen();
+        makePlayZone();
+        Sleep(300);
+
+        cleardevice();
+
+        //
+        Sleep(1000);
+
+        gameOverScreen();
+    }
+
 }
+
 //------------------------------
 void init()
 {
     makePlayZone();
+    showScoreBoard();
     tailX.insert(tailX.begin(),snakeX-1);
     tailY.insert(tailY.begin(),snakeY);
     foodSpawn();
@@ -258,16 +310,18 @@ void draw()
 {
     getKey();
 
-    if (gameStart)
+    if (gameStart && !gameOver)
     {
         develop();
         snakeMove();
         makeSnake();
+        drawScreen();
+
+        showScoreValue();
 
         logic();
-        showScore();
-        drawScreen();
         deleteSnake();
+
         saveTail();
         Sleep(gameSpeed);
         //cout << "SnakeX = " << snakeX << " SnakeY = " << snakeY << endl;

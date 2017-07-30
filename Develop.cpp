@@ -53,14 +53,16 @@ void gradientTest(bool isOn)
     if (isOn==true)
     {
         int b=0;
-        for (int i=0; i<=W; i++)
+        int g=0;
+        for (int i=0; i<=W; i+=W/255)
         {
-            for (int j=0; j<=H; j++)
+            for (int j=0; j<=H; j+=H/255)
             {
-                putpixel(i,j,RGB(i,j,b));
 
+                putpixel(i,j,RGB(i,g,b));
+                g++;
             }
-            b+=3;
+            b++;
         }
 
     }
@@ -70,9 +72,9 @@ void gradientTest(bool isOn)
 
 void develop()
 {
-    showInfo(false);
-    showGrid(true);
+    showInfo(0);
+    showGrid(0);
 
-    showCross(false);
-    gradientTest(false);
+    showCross(0);
+    gradientTest(0);
 }

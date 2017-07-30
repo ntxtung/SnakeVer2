@@ -3,7 +3,7 @@
 
 void setup();
 void showUnit(int x, int y, int pattern, int color);
-
+void gradientStyle1 ();
 
 
 
