@@ -32,4 +32,8 @@ void resultScreen();
 */
 void selectMenu();
 
+/**
+    GameOver Screen
+ */
+void gameOverScreen();
 #endif // SCREENS_H_INCLUDED

@@ -27,18 +27,18 @@ using namespace std;
 
 int main()
 {
-    //ShowWindow(FindWindowA("ConsoleWindowClass", NULL), false); // Dont open the console
+    //ShowWindow(FindWindowA("ConsoleWindowClass", NULL), false); // Dont open the console --> Just remove the comment when build the program
 
     setup();
     develop();
     mainMenu();
-    playScreen();
+
 
 
 
     getch();
     closegraph();
 
-    //FreeConsole();
+    //FreeConsole(); // The same with ShowWindow
     return 0;
 }

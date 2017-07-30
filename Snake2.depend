@@ -56,7 +56,7 @@
 	"Declaration.h"
 	"GraphicAPI.h"
 
-1501319554 d:\github\snakever2\declaration.h
+1501390404 d:\github\snakever2\declaration.h
 	<graphics.h>
 	<dos.h>
 	<stdio.h>
@@ -73,7 +73,7 @@
 	"Declaration.h"
 	"GraphicAPI.h"
 
-1501316833 source:d:\github\snakever2\main.cpp
+1501390299 source:d:\github\snakever2\main.cpp
 	"Declaration.h"
 	"GraphicAPI.h"
 	"Develop.h"
@@ -84,9 +84,9 @@
 
 1501175647 d:\github\snakever2\gameplay.h
 
-1500649862 d:\github\snakever2\screens.h
+1501388989 d:\github\snakever2\screens.h
 
-1501318700 source:d:\github\snakever2\screens.cpp
+1501401618 source:d:\github\snakever2\screens.cpp
 	"Declaration.h"
 	"GraphicAPI.h"
 	"Sound.h"
@@ -102,8 +102,10 @@
 	<windows.h>
 	"Sound.h"
 
-1501319607 source:d:\github\snakever2\gameplay.cpp
+1501393249 source:d:\github\snakever2\gameplay.cpp
 	"Declaration.h"
 	"GraphicAPI.h"
 	"Develop.h"
+	"Sound.h"
+	"Screens.h"
 

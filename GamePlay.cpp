@@ -10,6 +10,15 @@
     #include "Develop.h"
 #endif // DEVELOP_H_INCLUDED
 
+#ifndef SOUND_H_INCLUDED
+    #include "Sound.h"
+#endif // SOUND_H_INCLUDED
+
+#ifndef SCREENS_H_INCLUDED
+    #include "Screens.h"
+#endif // SCREEN_H_INCLUDED
+
+
 
 using namespace std;
 
@@ -245,6 +254,7 @@ void drawScreen()
         }
     }
 }
+
 // Game Logical
 void logic()
 {
@@ -258,8 +268,33 @@ void logic()
     }
 
     if (zone[snakeY][snakeX] == 1 || zone[snakeY][snakeX] == 3)
-        gameOver = true;
+    {
+        playSound("soundtrack\\hit_sound2.wav",0);
+        //Dead effect
+        cleardevice();
+
+        Sleep(100);
+        drawScreen();
+        makePlayZone();
+        Sleep(300);
+
+
+        cleardevice();
+        Sleep(100);
+        drawScreen();
+        makePlayZone();
+        Sleep(300);
+
+        cleardevice();
+
+        //
+        Sleep(1000);
+
+        gameOverScreen();
+    }
+
 }
+
 //------------------------------
 void init()
 {
@@ -274,16 +309,18 @@ void draw()
 {
     getKey();
 
-    if (gameStart)
+    if (gameStart && !gameOver)
     {
         develop();
         snakeMove();
         makeSnake();
+        drawScreen();
+
+        showScoreValue();
 
         logic();
-        showScoreValue();
-        drawScreen();
         deleteSnake();
+
         saveTail();
         Sleep(gameSpeed);
         //cout << "SnakeX = " << snakeX << " SnakeY = " << snakeY << endl;
