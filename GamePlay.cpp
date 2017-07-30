@@ -1,24 +1,12 @@
-#ifndef DECLARATION_H_INCLUDED
-    #include "Declaration.h"
-#endif // DECLARATION_H_INCLUDED
+#include <vector>
+#include <windows.h> //included Windows.h
+#include <stdio.h>
 
-#ifndef GRAPHICAPI_H_INCLUDED
-    #include "GraphicAPI.h"
-#endif // GRAPHICAPI_H_INCLUDED
-
-#ifndef DEVELOP_H_INCLUDED
-    #include "Develop.h"
-#endif // DEVELOP_H_INCLUDED
-
-#ifndef SOUND_H_INCLUDED
-    #include "Sound.h"
-#endif // SOUND_H_INCLUDED
-
-#ifndef SCREENS_H_INCLUDED
-    #include "Screens.h"
-#endif // SCREEN_H_INCLUDED
-
-
+#include "Declaration.h"
+#include "GraphicAPI.h"
+#include "Develop.h"
+#include "Sound.h"
+#include "Screens.h"
 
 using namespace std;
 
@@ -172,7 +160,7 @@ void foodSpawn()
 {
     do
     {
-        srand(snakeX + snakeY + foodX + foodY + time(NULL)); //random seed
+        srand(snakeX + snakeY + foodX + foodY + GetTickCount()); //random seed
         foodX = 1 + rand() % (playZoneW-1);
         foodY = 1 + rand() % (playZoneH-1);
     }
@@ -270,30 +258,25 @@ void logic()
 
     if (zone[snakeY][snakeX] == 1 || zone[snakeY][snakeX] == 3)
     {
-        playSound("soundtrack\\hit_sound2.wav",0);
-        //Dead effect
-        cleardevice();
+        playSound("soundtrack\\hit_sound2.wav", 0);
 
-        Sleep(100);
-        drawScreen();
-        makePlayZone();
-        Sleep(300);
-
-
+        //Dead effect //// BLINKING SCREEN////////////////
         cleardevice();
         Sleep(100);
         drawScreen();
         makePlayZone();
         Sleep(300);
-
         cleardevice();
+        Sleep(100);
+        drawScreen();
+        makePlayZone();
+        Sleep(300);
+        cleardevice();
+        /////////////// END OF EFFECT ///////////////////
 
-        //
         Sleep(1000);
-
         gameOverScreen();
     }
-
 }
 
 //------------------------------

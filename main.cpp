@@ -1,12 +1,6 @@
-#include "Declaration.h"
 #include "GraphicAPI.h"
 #include "Develop.h"
-#include "GamePlay.h"
 #include "Screens.h"
-
-//int gd = DETECT, gm;
-
-//-------------------------//
 
 int main()
 {
@@ -15,7 +9,6 @@ int main()
     setup();
     develop();
     mainMenu();
-
 
     getch();
     closegraph();

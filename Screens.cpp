@@ -1,24 +1,13 @@
-#ifndef DECLARATION_H_INCLUDED
-    #include "Declaration.h"
-#endif// DECLARATION_H_INCLUDED
-
-#ifndef GRAPHICAPI_H_INCLUDED
-    #include "GraphicAPI.h"
-#endif // GRAPHICAPI_H_INCLUDED
-
-#ifndef SOUND_H_INCLUDED
-    #include "Sound.h"
-#endif // SOUND_H_INCLUDED
-
-#ifndef GAMEPLAY_H_INCLUDED
-    #include "GamePlay.h"
-#endif // GAMEPLAY_H_INCLUDED
-
-#include "Screens.h"
-
 #include <iostream>
 #include <conio.h>
 #include <windows.h>
+#include <stdio.h>
+
+#include "Declaration.h"
+#include "GraphicAPI.h"
+#include "Sound.h"
+#include "GamePlay.h"
+#include "Screens.h"
 
 using namespace std;
 
@@ -39,7 +28,7 @@ void mainMenu()
     settextstyle(BOLD_FONT, HORIZ_DIR, 3);
     outtextxy(470,500,"[Press any key to start]");
 
-    while (!kbhit())
+  /*  while (!kbhit())
     {
         if (order%4+1 == 1)
             readimagefile("picture\\snake1.bmp",logoX, logoY, logoX + 312*2.5, logoY + 65*2.5);
@@ -52,9 +41,7 @@ void mainMenu()
         order++;
         Sleep(700);
     }
-
-
-
+    */
 
     getch();
     playScreen();
@@ -99,7 +86,7 @@ void gameOverScreen()
     cleardevice();
     int logoX=400;
     int logoY=50;
-    readimagefile("picture\\Gameover.bmp",logoX, logoY, logoX + 176*2.5, logoY + 85*2.5);
+//    readimagefile("picture\\Gameover.bmp",logoX, logoY, logoX + 176*2.5, logoY + 85*2.5);
 
     settextstyle(BOLD_FONT, HORIZ_DIR, 3);
     outtextxy(470,500,"[Press any key to exit]");
