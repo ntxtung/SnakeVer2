@@ -263,6 +263,7 @@ void logic()
     if (snakeX == foodX && snakeY == foodY)
     {
         score += 10;
+        playSound("soundtrack\\eat_sound.wav",0);
         numTails++;
         foodSpawn();
     }
