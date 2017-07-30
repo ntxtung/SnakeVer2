@@ -1,7 +1,6 @@
 #ifndef SCREENS_H_INCLUDED
 #define SCREENS_H_INCLUDED
 
-
 /**
     Show main Menu.
 */
@@ -32,4 +31,8 @@ void resultScreen();
 */
 void selectMenu();
 
+/**
+    GameOver Screen
+ */
+void gameOverScreen();
 #endif // SCREENS_H_INCLUDED

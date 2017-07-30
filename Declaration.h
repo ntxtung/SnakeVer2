@@ -31,14 +31,15 @@ const int scrY = 1;    //Screen LeftTop Y
  #define SOUND_MENU "soundtrack\\StartScreen.wav"
 /////////////////////////////////
 
-#include <graphics.h>
-//#include <conio.h>
-#include <dos.h>
-#include <stdlib.h>
-#include <iostream>
-//#include <conio.h>
-#include <windows.h>
-#include <vector>
-#include <time.h>
+//#include <winbgim.h>
+//#include <dos.h>
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <iostream>
+//#include <conio.h> // Dont use this with the graphics.h
+//#include <windows.h>
+//#include <vector>
+//#include <time.h>
+//#include <string>
 
 #endif // DECLARATION_H_INCLUDED
