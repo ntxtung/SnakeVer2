@@ -21,3 +21,6 @@
 - Score added
 - Main Menu added
 - Game logo added
+
+30/7/2017
+- GameOver screen added
