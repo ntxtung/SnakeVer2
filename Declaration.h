@@ -29,6 +29,8 @@ const int scrY = 1;    //Screen LeftTop Y
 
 ///      SOUND      | FILENAME
  #define SOUND_MENU "soundtrack\\StartScreen.wav"
+ #define SOUND_EAT  "soundtrack\\eat_sound.wav"
+ #define SOUND_DEAD "soundtrack\\hit_sound2.wav"
 /////////////////////////////////
 
 //#include <winbgim.h>

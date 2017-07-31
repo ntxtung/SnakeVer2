@@ -6,12 +6,12 @@ int main()
 {
     //ShowWindow(FindWindowA("ConsoleWindowClass", NULL), false); // Dont open the console --> Just remove the comment when build the program
 
-    setup();
-    develop();
-    mainMenu();
+    setup();        //setup environment
+    //develop();    //debug only
+    mainMenu();     //show main menu
 
-    getch();
-    closegraph();
+    getch();        // close gameover screen
+    closegraph();   //free graphs
 
     //FreeConsole(); // The same with ShowWindow
     return 0;

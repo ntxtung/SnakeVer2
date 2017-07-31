@@ -38,8 +38,6 @@
 		<Linker>
 			<Add library="winmm" />
 		</Linker>
-		<Unit filename="CairoAPI.cpp" />
-		<Unit filename="CairoAPI.h" />
 		<Unit filename="Declaration.h" />
 		<Unit filename="Develop.cpp" />
 		<Unit filename="Develop.h" />

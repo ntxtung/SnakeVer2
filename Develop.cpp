@@ -14,7 +14,6 @@ void showCross(bool isOn)
         line(W,0,0,H);
         setcolor(DEFAULT_COLOR);
     }
-
 }
 
 void showGrid(bool isOn)
@@ -61,8 +60,6 @@ void gradientTest(bool isOn)
 
     }
 }
-
-
 
 void develop()
 {
