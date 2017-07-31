@@ -290,7 +290,6 @@ void init()
     score = 0; //reset socre
     tailX.clear();
     tailY.clear();
-    tailY.clear();
     tailX.insert(tailX.begin(),snakeX-1);
     tailY.insert(tailY.begin(),snakeY);
     foodSpawn();
