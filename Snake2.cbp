@@ -38,6 +38,7 @@
 		<Linker>
 			<Add library="winmm" />
 		</Linker>
+		<Unit filename="Classes.h" />
 		<Unit filename="Declaration.h" />
 		<Unit filename="Develop.cpp" />
 		<Unit filename="Develop.h" />
@@ -45,6 +46,7 @@
 		<Unit filename="GamePlay.h" />
 		<Unit filename="Screens.cpp" />
 		<Unit filename="Screens.h" />
+		<Unit filename="Snake.cpp" />
 		<Unit filename="Sound.cpp" />
 		<Unit filename="Sound.h" />
 		<Unit filename="graphicAPI.cpp" />

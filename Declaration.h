@@ -27,21 +27,21 @@ const int playZoneH = 20;
 const int scrX = 1;    //Screen LeftTop X
 const int scrY = 1;    //Screen LeftTop Y
 
-///      SOUND      | FILENAME
- #define SOUND_MENU "soundtrack\\StartScreen.wav"
- #define SOUND_EAT  "soundtrack\\eat_sound.wav"
- #define SOUND_DEAD "soundtrack\\hit_sound2.wav"
+///      SOUND              | FILENAME
+ #define SOUND_START_SCREEN "soundtrack\\StartScreen.wav"
+ #define SOUND_EAT          "soundtrack\\eat_sound.wav"
+ #define SOUND_DEAD         "soundtrack\\hit_sound2.wav"
+ #define SOUND_GAMEOVER     "soundtrack\\gameover.wav"
+///      IMG                | FILENAME
+ #define IMG_SNAKE1         "picture\\snake1.bmp"
+ #define IMG_SNAKE2         "picture\\snake2.bmp"
+ #define IMG_SNAKE3         "picture\\snake3.bmp"
+ #define IMG_SNAKE4         "picture\\snake4.bmp"
+ #define IMG_GAMEOVER       "picture\\Gameover.bmp"
+///      TEXT               | TEXT
+ #define TEXT_PRESSKEY      "[Press any key to start]"
+ #define TEXT_COPYRIGHT     "Copyright by RIP_FINAL @ 2017"
+ #define TEXT_MAJOR         "CSE IU - International University"
 /////////////////////////////////
-
-//#include <winbgim.h>
-//#include <dos.h>
-//#include <stdio.h>
-//#include <stdlib.h>
-//#include <iostream>
-//#include <conio.h> // Dont use this with the graphics.h
-//#include <windows.h>
-//#include <vector>
-//#include <time.h>
-//#include <string>
 
 #endif // DECLARATION_H_INCLUDED
