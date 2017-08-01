@@ -1,15 +1,9 @@
-#ifndef DECLARATION_H_INCLUDED
-    #include "Declaration.h"
-#endif // DECLARATION_H_INCLUDED
+#include <iostream>
 
-#ifndef GRAPHICAPI_H_INCLUDED
-    #include "GraphicAPI.h"
-#endif // CONSOLEAPI_H_INCLUDED
-
-
+#include "Declaration.h"
+#include "GraphicAPI.h"
 
 using namespace std;
-
 
 void showCross(bool isOn)
 {
@@ -20,7 +14,6 @@ void showCross(bool isOn)
         line(W,0,0,H);
         setcolor(DEFAULT_COLOR);
     }
-
 }
 
 void showGrid(bool isOn)
@@ -67,8 +60,6 @@ void gradientTest(bool isOn)
 
     }
 }
-
-
 
 void develop()
 {

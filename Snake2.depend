@@ -52,70 +52,56 @@
 
 1501175647 d:\project\snake2\gameplay.h
 
-
-1501317216 source:d:\github\snakever2\develop.cpp
-	"Declaration.h"
-	"GraphicAPI.h"
-
-1501390404 d:\github\snakever2\declaration.h
-	<graphics.h>
-	<dos.h>
-	<stdio.h>
-
-	<stdlib.h>
+1501439070 source:d:\github\snakever2\develop.cpp
 	<iostream>
-	<windows.h>
-	<vector>
-	<time.h>
-
-	<string>
-
-1501303314 d:\github\snakever2\graphicapi.h
-
-1501317162 source:d:\github\snakever2\graphicapi.cpp
 	"Declaration.h"
 	"GraphicAPI.h"
 
-1501390299 source:d:\github\snakever2\main.cpp
 
+	<graphics.h>
 
 	"Declaration.h"
+	"GraphicAPI.h"
+
 	"GraphicAPI.h"
 	"Develop.h"
-	"GamePlay.h"
 	"Screens.h"
 
+1501177914 d:\github\snakever2\develop.h
 
-1500648614 d:\github\snakever2\develop.h
+1501439070 d:\github\snakever2\gameplay.h
 
-1501175647 d:\github\snakever2\gameplay.h
+1501439070 d:\github\snakever2\screens.h
 
-1501388989 d:\github\snakever2\screens.h
-
-1501401618 source:d:\github\snakever2\screens.cpp
-
-
-	"Declaration.h"
-	"GraphicAPI.h"
-	"Sound.h"
-	"GamePlay.h"
-	"Screens.h"
+1501517896 source:d:\github\snakever2\screens.cpp
 	<iostream>
 	<conio.h>
 	<windows.h>
-
-
-1500614510 d:\github\snakever2\sound.h
-
-1500614510 source:d:\github\snakever2\sound.cpp
-	<windows.h>
+	<stdio.h>
+	"Declaration.h"
+	"GraphicAPI.h"
 	"Sound.h"
+	"GamePlay.h"
+	"Screens.h"
 
-1501393249 source:d:\github\snakever2\gameplay.cpp
+1501177914 d:\github\snakever2\sound.h
+
+1501439070 source:d:\github\snakever2\sound.cpp
+	"Sound.h"
+	<windows.h>
+
+1501439070 source:d:\github\snakever2\gameplay.cpp
+	<vector>
+	<windows.h>
+	<stdio.h>
 	"Declaration.h"
 	"GraphicAPI.h"
 	"Develop.h"
 	"Sound.h"
 	"Screens.h"
 
+1501261286 source:d:\github\snakever2\cairoapi.cpp
+	"CairoAPI.h"
+
+1501261255 d:\github\snakever2\cairoapi.h
 

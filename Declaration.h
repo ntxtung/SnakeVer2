@@ -29,17 +29,19 @@ const int scrY = 1;    //Screen LeftTop Y
 
 ///      SOUND      | FILENAME
  #define SOUND_MENU "soundtrack\\StartScreen.wav"
+ #define SOUND_EAT  "soundtrack\\eat_sound.wav"
+ #define SOUND_DEAD "soundtrack\\hit_sound2.wav"
 /////////////////////////////////
 
-#include <graphics.h>
-#include <dos.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <iostream>
+//#include <winbgim.h>
+//#include <dos.h>
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <iostream>
 //#include <conio.h> // Dont use this with the graphics.h
-#include <windows.h>
-#include <vector>
-#include <time.h>
-#include <string>
+//#include <windows.h>
+//#include <vector>
+//#include <time.h>
+//#include <string>
 
 #endif // DECLARATION_H_INCLUDED
