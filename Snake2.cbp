@@ -47,6 +47,7 @@
 		<Unit filename="Screens.cpp" />
 		<Unit filename="Screens.h" />
 		<Unit filename="Snake.cpp" />
+		<Unit filename="SnakeGame.cpp" />
 		<Unit filename="Sound.cpp" />
 		<Unit filename="Sound.h" />
 		<Unit filename="graphicAPI.cpp" />

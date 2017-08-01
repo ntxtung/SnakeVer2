@@ -1,7 +1,10 @@
 #ifndef CLASSES_H_INCLUDED
 #define CLASSES_H_INCLUDED
 
+#include "Declaration.h"
+
 #include <vector>
+#include <windows.h>
 
 using namespace std;
 
@@ -31,12 +34,33 @@ class Snake
 
         void  move();
         void  saveTails();
+
     private:
         point pos;
         int tailLen = 0; //length of Tails;
         vector<point> tails;
         SnakeDirection direction = RIGHT; //default direction
+
     protected:
+};
+
+class SnakeGame
+{
+public:
+    void  setZone(int _x, int _y, int _val);
+    void  setZone(point _pos, int _val);
+    int   getZone(int _x, int _y);
+    int   getZone(point _pos);
+    int   getScore();
+
+private:
+    int zone[playZoneH+1][playZoneW+1] = { {0} };
+    int score = 0;
+    Snake snake;
+    //~~
+    int secureKey = GetTickCount();
+    //~~ FUNCTION
+    void  setScore(int _score);
 };
 
 #endif // CLASSES_H_INCLUDED

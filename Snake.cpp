@@ -1,4 +1,6 @@
-#include "Classes.h"
+#include "Classes.h" //included <vector>
+
+
 #include <stdlib.h>
 
 using namespace std;
