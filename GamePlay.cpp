@@ -1,24 +1,12 @@
-#ifndef DECLARATION_H_INCLUDED
-    #include "Declaration.h"
-#endif // DECLARATION_H_INCLUDED
+#include <vector>
+#include <windows.h> //included Windows.h
+#include <stdio.h>
 
-#ifndef GRAPHICAPI_H_INCLUDED
-    #include "GraphicAPI.h"
-#endif // GRAPHICAPI_H_INCLUDED
-
-#ifndef DEVELOP_H_INCLUDED
-    #include "Develop.h"
-#endif // DEVELOP_H_INCLUDED
-
-#ifndef SOUND_H_INCLUDED
-    #include "Sound.h"
-#endif // SOUND_H_INCLUDED
-
-#ifndef SCREENS_H_INCLUDED
-    #include "Screens.h"
-#endif // SCREEN_H_INCLUDED
-
-
+#include "Declaration.h"
+#include "GraphicAPI.h"
+#include "Develop.h"
+#include "Sound.h"
+#include "Screens.h"
 
 using namespace std;
 
@@ -30,7 +18,11 @@ int zone[playZoneH+1][playZoneW+1] = {0};
 // Zone 3 = snakeTail
 // Zone 4 = food
 
-int score = 0, snakeX = (playZoneW/2), snakeY = (playZoneH/2), foodX = 0, foodY = 0, gameSpeed = 30, timer = 0;
+int score = 0;
+int snakeX = (playZoneW/2), snakeY = (playZoneH/2);
+int foodX = 0, foodY = 0;
+int gameSpeed = 50;
+int timer = 0;
 int numTails = 1;
 
 vector <int> tailX, tailY;
@@ -172,13 +164,13 @@ void foodSpawn()
 {
     do
     {
-        srand(snakeX + snakeY + foodX + foodY + time(NULL)); //random seed
+        srand(snakeX + snakeY + foodX + foodY + GetTickCount()); //random seed {updated by HTML 31/7/17}
         foodX = 1 + rand() % (playZoneW-1);
         foodY = 1 + rand() % (playZoneH-1);
     }
     while (zone[foodY][foodX] !=0 || (foodX==snakeX && foodY==snakeY));
 
-    zone[foodY][foodX]=4;
+    zone[foodY][foodX] = 4; //make food
     //cout << "FoodX = " << foodX << " foodY = " << foodY << endl;
 }
 //---------------------------------
@@ -200,7 +192,7 @@ void showScoreBoard()
 //------------------------------
 void showScoreValue()
 {
-    char Score[5]={};
+    char Score[5] = {};
     string str;
     int temp = score;
 
@@ -216,39 +208,38 @@ void drawScreen()
 {
     for (int i=1; i<playZoneH; i++)
     {
-
         for (int j=1; j<playZoneW; j++)
          {
             switch (zone[i][j])
             {
                 case 0: // None
                 {
-                    showUnit(scrX + j -1, scrY + i-1, 1, BLACK);
+                    drawBlock(scrX + j -1, scrY + i-1, SOLID_FILL, BLACK);
                     break;
                 }
                 case 1: // Danger block
                 {
-                    showUnit(scrX + j-1, scrY + i-1, 1, RED);
+                    drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, RED);
                     break;
                 }
                 case 2: // Head
                 {
-                    showUnit(scrX + j-1, scrY + i-1, 1, RGB(0,155,155));
+                    drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, RGB(0,155,155));
                     break;
                 }
                 case 3: // Tail
                 {
-                    showUnit(scrX + j-1, scrY + i-1, 1, GREEN);
+                    drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, GREEN);
                     break;
                 }
                 case 4: // Food
                 {
-                    showUnit(scrX + j-1, scrY + i-1, 1, BLUE);
+                    drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, BLUE);
                     break;
                 }
                 default: // None
                 {
-                    //showUnit(scrX + j, scrY + i, 1, BLACK);
+                    //drawBlock(scrX + j, scrY + i, SOLID_FILL, BLACK);
                 }
             }
         }
@@ -263,37 +254,32 @@ void logic()
     if (snakeX == foodX && snakeY == foodY)
     {
         score += 10;
-        playSound("soundtrack\\eat_sound.wav",0);
+        playSound(SOUND_EAT,0);
         numTails++;
         foodSpawn();
     }
 
     if (zone[snakeY][snakeX] == 1 || zone[snakeY][snakeX] == 3)
     {
-        playSound("soundtrack\\hit_sound2.wav",0);
-        //Dead effect
-        cleardevice();
+        playSound(SOUND_DEAD, 0);
 
-        Sleep(100);
-        drawScreen();
-        makePlayZone();
-        Sleep(300);
-
-
+        //Dead effect //// BLINKING SCREEN////////////////
         cleardevice();
         Sleep(100);
         drawScreen();
         makePlayZone();
         Sleep(300);
-
         cleardevice();
+        Sleep(100);
+        drawScreen();
+        makePlayZone();
+        Sleep(300);
+        cleardevice();
+        /////////////// END OF EFFECT ///////////////////
 
-        //
         Sleep(1000);
-
         gameOverScreen();
     }
-
 }
 
 //------------------------------
@@ -301,6 +287,9 @@ void init()
 {
     makePlayZone();
     showScoreBoard();
+    score = 0; //reset socre
+    tailX.clear();
+    tailY.clear();
     tailX.insert(tailX.begin(),snakeX-1);
     tailY.insert(tailY.begin(),snakeY);
     foodSpawn();
@@ -312,18 +301,18 @@ void draw()
 
     if (gameStart && !gameOver)
     {
-        develop();
-        snakeMove();
-        makeSnake();
-        drawScreen();
+        //develop();    //debug only
+        snakeMove();    //change head of snake
+        makeSnake();    //change head on matrix
+        drawScreen();   //draw screen
 
         showScoreValue();
 
         logic();
-        deleteSnake();
+        deleteSnake();      //delete old head
 
-        saveTail();
-        Sleep(gameSpeed);
+        saveTail();         //save tail to Vector
+        Sleep(gameSpeed);   //delay between each frame
         //cout << "SnakeX = " << snakeX << " SnakeY = " << snakeY << endl;
     }
 }
