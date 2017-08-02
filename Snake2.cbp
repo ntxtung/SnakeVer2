@@ -40,6 +40,7 @@
 			<Add library="winmm" />
 			<Add library="C:/Program Files (x86)/CodeBlocks/MinGW/lib/libbgi.a" />
 		</Linker>
+		<Unit filename="Classes.h" />
 		<Unit filename="Declaration.h" />
 		<Unit filename="Develop.cpp" />
 		<Unit filename="Develop.h" />
@@ -47,6 +48,8 @@
 		<Unit filename="GamePlay.h" />
 		<Unit filename="Screens.cpp" />
 		<Unit filename="Screens.h" />
+		<Unit filename="Snake.cpp" />
+		<Unit filename="SnakeGame.cpp" />
 		<Unit filename="Sound.cpp" />
 		<Unit filename="Sound.h" />
 		<Unit filename="graphicAPI.cpp" />

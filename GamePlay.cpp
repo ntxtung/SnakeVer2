@@ -108,7 +108,7 @@ void getKey()
         (tempDir=='L' && direct!='R') ||
         (tempDir=='R' && direct!='L')
         )
-    direct=tempDir;
+    direct = tempDir;
     //cout << direct;
 }
 
@@ -133,8 +133,8 @@ void snakeMove()
 //Make snake
 void saveTail ()
 {
-    tailX.insert(tailX.begin(),snakeX);
-    tailY.insert(tailY.begin(),snakeY);
+    tailX.insert(tailX.begin(), snakeX);
+    tailY.insert(tailY.begin(), snakeY);
     //deleteTail
     while (tailX.size()>numTails || tailY.size()>numTails)
     {
@@ -154,8 +154,8 @@ void makeSnake()
         else
             zone[tailY[i]][tailX[i]] = 2;
     }
-
 }
+
 void deleteSnake()
 {
     zone[snakeY][snakeX] = 0;
@@ -188,12 +188,11 @@ void showScoreBoard()
                    (scrY + 0) * unitLength - i,
                    (scrX + playZoneW + 7 ) * unitLength + i,
                    (scrY + 2) * unitLength + i);
-
 }
 //------------------------------
 void showScoreValue()
 {
-    char Score[5] = {};
+    char Score[7] = {};
     string str;
     int temp = score;
 
@@ -255,10 +254,10 @@ void logic()
 
     if (snakeX == foodX && snakeY == foodY)
     {
-        score += 10;
-        playSound(SOUND_EAT,0);
-        numTails++;
-        foodSpawn();
+        score += 10; //increase score
+        playSound(SOUND_EAT, 0);
+        numTails++; //increase tails
+        foodSpawn(); //spawn next food
     }
 
     if (zone[snakeY][snakeX] == 1 || zone[snakeY][snakeX] == 3)
@@ -289,12 +288,12 @@ void init()
 {
     makePlayZone();
     showScoreBoard();
-    score = 0; //reset socre
-    tailX.clear();
-    tailY.clear();
+    score = 0; //reset score
+    tailX.clear(); //reset tailX
+    tailY.clear(); //reset tailY
     tailX.insert(tailX.begin(),snakeX-1);
     tailY.insert(tailY.begin(),snakeY);
-    foodSpawn();
+    foodSpawn(); //spawn first food
 }
 //--------------------------------
 void cDraw()

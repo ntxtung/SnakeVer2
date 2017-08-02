@@ -1,7 +1,7 @@
 #include "Declaration.h"
 #include "GraphicAPI.h"
 
-void setup()
+void initGraphic()
 {
     initwindow(W, H, "THIS IS A SNAKE GAME!");
 }
