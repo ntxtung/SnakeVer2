@@ -31,6 +31,9 @@ const int scrY = 1;    //Screen LeftTop Y
  #define SOUND_MENU "soundtrack\\StartScreen.wav"
  #define SOUND_EAT  "soundtrack\\eat_sound.wav"
  #define SOUND_DEAD "soundtrack\\hit_sound2.wav"
+
+///      MAP FILE   | FILENAME
+ #define MAP_TEMPLATE "map\\template.txt"
 /////////////////////////////////
 
 //#include <winbgim.h>

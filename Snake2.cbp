@@ -36,7 +36,9 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Linker>
+			<Add option="-lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32" />
 			<Add library="winmm" />
+			<Add library="C:/Program Files (x86)/CodeBlocks/MinGW/lib/libbgi.a" />
 		</Linker>
 		<Unit filename="Declaration.h" />
 		<Unit filename="Develop.cpp" />
@@ -50,6 +52,8 @@
 		<Unit filename="graphicAPI.cpp" />
 		<Unit filename="graphicAPI.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="map.cpp" />
+		<Unit filename="map.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
