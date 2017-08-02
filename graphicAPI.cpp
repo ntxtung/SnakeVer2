@@ -15,6 +15,11 @@ void drawBlock(int x, int y, fill_styles pattern, int color)
         (y + scrY -1) * unitLength + unitLength);
 }
 
+void drawImage(int x, int y)
+{
+    readimagefile();
+}
+
 void gradientStyle1()
 {
     int b=0;

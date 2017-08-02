@@ -1,6 +1,7 @@
 #include <vector>
 #include <windows.h> //included Windows.h
 #include <stdio.h>
+#include <iostream>
 
 #include "Declaration.h"
 #include "GraphicAPI.h"
@@ -21,7 +22,7 @@ int zone[playZoneH+1][playZoneW+1] = {0};
 int score = 0;
 int snakeX = (playZoneW/2), snakeY = (playZoneH/2);
 int foodX = 0, foodY = 0;
-int gameSpeed = 50;
+int gameSpeed = 40;
 int timer = 0;
 int numTails = 1;
 
@@ -197,10 +198,11 @@ void showScoreValue()
 
     sprintf(Score,"%d",score);
 
+    settextjustify(CENTER_TEXT, CENTER_TEXT);
     settextstyle(BOLD_FONT, HORIZ_DIR, 4);
-    outtextxy((scrX + playZoneW + 1.4)  * unitLength + 10,
-              (scrY + 0.6) * unitLength,
-               Score); //draw score
+    outtextxy((scrX + playZoneW + 3.6)  * unitLength + 10,
+              (scrY + 1.2) * unitLength,
+               Score);
 }
 //-------------------------------
 void drawScreen()
@@ -233,7 +235,7 @@ void drawScreen()
                 }
                 case 4: // Food
                 {
-                    drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, BLUE);
+                    drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, YELLOW);
                     break;
                 }
                 default: // None
@@ -294,6 +296,17 @@ void init()
     foodSpawn(); //spawn first food
 }
 //--------------------------------
+void cDraw()
+{
+    for (int i=0; i<playZoneH+1; i++)
+    {
+        for (int j=0; j<playZoneW+1; j++)
+        {
+            cout << zone[i][j];
+        }
+        cout << endl;
+    }
+}
 void draw()
 {
     getKey();
@@ -301,10 +314,13 @@ void draw()
     if (gameStart && !gameOver)
     {
         //develop();    //debug only
+
         snakeMove();    //change head of snake
         makeSnake();    //change head on matrix
         drawScreen();   //draw screen
 
+        system("cls");
+        cDraw();
         showScoreValue();
 
         logic();
