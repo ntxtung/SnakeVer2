@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 extern int zone[playZoneH+1][playZoneW+1];
 
 ifstream input;

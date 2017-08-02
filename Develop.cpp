@@ -5,7 +5,6 @@
 
 using namespace std;
 
-/*
 void showCross(bool isOn)
 {
     if (isOn==true)
@@ -61,7 +60,7 @@ void gradientTest(bool isOn)
 
     }
 }
-*/
+
 void develop()
 {
     showInfo(1);
