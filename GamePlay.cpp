@@ -306,8 +306,8 @@ void draw()
         makeSnake();    //change head on matrix
         drawScreen();   //draw screen
 
-        system("cls");
-        cDraw();
+        //system("cls");
+       // cDraw();
         showScoreValue();
 
         logic();

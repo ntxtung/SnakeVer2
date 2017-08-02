@@ -9,6 +9,12 @@
 #define KEY_RIGHT   77
 #define KEY_ENTER   13
 
+#define ZONE_VOID 0
+#define ZONE_WALL 1
+#define ZONE_HEAD 2
+#define ZONE_TAIL 3
+#define ZONE_FOOD 4
+
 #define MAX_TAIL (W-2)*(H-2)
 
 #define DEFAULT_COLOR WHITE

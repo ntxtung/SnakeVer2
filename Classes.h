@@ -34,7 +34,7 @@ public:
 
 private:
     point pos;
-    int   tailLen = 0; //length of Tails;
+    int   tailLen = 0; //length of Tails; .
     vector<point> tails;
     SnakeDirection direction = RIGHT; //default direction
 };
@@ -48,28 +48,33 @@ public:
     int   getZone(int _x, int _y);
     int   getZone(point _pos);
     int   getScore();
+    int   setGameSpeed(int _gameSpeed);
+    int   getGameSpeed();
 
     void  loadMap(char *_dir);
     void  beginGame();
 
 private:
-    bool  gameOver = false;
-    bool  gameStarted = false;
+    bool  gameOver = true;
     int   zone[playZoneH+1][playZoneW+1] = { {0} };
     int   score = 0;
-    Snake *snake = new Snake(1,1); //(5, 5);
+    int   gameSpeed = 30;
+    Snake *snake = new Snake(playZoneW/2, playZoneH/2);
     //
     void  setSecureKey(int _val);
     //~~
     int   secureKey;
     //~~ FUNCTION
     void  setScore(int _score);
-    void  snakeMove();
+    void  getKey2ChangeDirection(); //getkey and auto change direction
+    void  snakeMove(); //change position depending on direction
+    void  drawPoint(int x, int y);
     void  drawScreen(); // draw Zone to GameScreen
     void  drawBorder(); // draw border
     void  drawScoreBoard(); // draw Scoreboard
     void  drawScoreValue(); // draw score in Scoreboard
     void  gameThread(); // main game thread
+    void  logic();
 };
 
 #endif // CLASSES_H_INCLUDED

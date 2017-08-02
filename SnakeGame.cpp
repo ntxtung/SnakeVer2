@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <windows.h>
+#include <conio.h>
 
 #include "Classes.h" //included <vector>
 #include "GraphicAPI.h"
@@ -18,27 +19,85 @@ SnakeGame::~SnakeGame(){
     closegraph();
 }
 
-void  SnakeGame::setZone(int _x, int _y, int _val){
-    zone[_y][_x] = _val;
+inline void  SnakeGame::setZone(int _x, int _y, int _val){
+    this->zone[_y][_x] = _val;
+    if ( !this->gameOver )
+        this->drawPoint(_x, _y);
 }
-void  SnakeGame::setZone(point _pos, int _val){
-    zone[_pos.y][_pos.x] = _val;
+inline void  SnakeGame::setZone(point _pos, int _val){
+    this->zone[_pos.y][_pos.x] = _val;
+    if ( !this->gameOver )
+        this->drawPoint(_pos.x, _pos.y);
 }
-int   SnakeGame::getZone(int _x, int _y){
-    return zone[_y][_x];
+inline int   SnakeGame::getZone(int _x, int _y){
+    return this->zone[_y][_x];
 }
-int   SnakeGame::getZone(point _pos){
-    return zone[_pos.y][_pos.x];
+inline int   SnakeGame::getZone(point _pos){
+    return this->zone[_pos.y][_pos.x];
 }
 int   SnakeGame::getScore(){
-    return score;
+    return this->score;
 }
 void  SnakeGame::setScore(int _score){
-    score += _score;
+    this->score += _score;
     this->drawScoreValue();
 }
 void  SnakeGame::setSecureKey(int _val){
     this->secureKey = _val;
+}
+int   SnakeGame::setGameSpeed(int _gameSpeed){
+    this->gameSpeed = _gameSpeed;
+}
+int   SnakeGame::getGameSpeed(){
+    return this->gameSpeed;
+}
+
+void  SnakeGame::getKey2ChangeDirection()
+{
+    SnakeDirection _snakeDirection = this->snake->getDirection();
+    if (kbhit()) //Keyboard Hit
+    {
+        int kbKey = getch();
+        switch (kbKey)
+        {
+        case 'a':
+        case 'A':
+            _snakeDirection = LEFT;
+            break;
+        case 's':
+        case 'S':
+            _snakeDirection = DOWN;
+            break;
+        case 'd':
+        case 'D':
+            _snakeDirection = RIGHT;
+            break;
+        case 'w':
+        case 'W':
+            _snakeDirection = UP;
+            break;
+        }
+        if (kbKey == 0 || kbKey == 224)
+        {
+            char tempKB = getch();
+            switch (tempKB)
+            {
+            case KEY_LEFT:
+                _snakeDirection = LEFT;
+                break;
+            case KEY_DOWN:
+                _snakeDirection = DOWN;
+                break;
+            case KEY_RIGHT:
+                _snakeDirection = RIGHT;
+                break;
+            case KEY_UP:
+                _snakeDirection = UP;
+                break;
+            }
+        }
+        this->snake->setDirection(_snakeDirection);
+    }
 }
 
 void  SnakeGame::snakeMove(){
@@ -62,28 +121,28 @@ void  SnakeGame::snakeMove(){
 
 void  SnakeGame::drawScreen(){
     for (int i=1; i<playZoneH; i++)
-    {
         for (int j=1; j<playZoneW; j++)
-        {
-            switch (getZone(j, i)) // zone[i][j])
-            {
-            case 0: // None
-                drawBlock(scrX + j -1, scrY + i-1, SOLID_FILL, BLACK);
-                break;
-            case 1: // Danger block
-                drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, RED);
-                break;
-            case 2: // Head
-                drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, RGB(0,155,155));
-                break;
-            case 3: // Tail
-                drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, GREEN);
-                break;
-            case 4: // Food
-                drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, BLUE);
-                break;
-            }
-        }
+            this->drawPoint(j,i);
+}
+
+void  SnakeGame::drawPoint(int x, int y){
+    switch (this->getZone(x, y)) // zone[i][j])
+    {
+    case ZONE_VOID: // None
+        drawBlock(scrX + x -1, scrY + y-1, SOLID_FILL, BLACK);
+        break;
+    case ZONE_WALL: // Danger block
+        drawBlock(scrX + x-1, scrY + y-1, SOLID_FILL, RED);
+        break;
+    case ZONE_HEAD: // Head
+        drawBlock(scrX + x-1, scrY + y-1, SOLID_FILL, RGB(0,155,155));
+        break;
+    case ZONE_TAIL: // Tail
+        drawBlock(scrX + x-1, scrY + y-1, SOLID_FILL, GREEN);
+        break;
+    case ZONE_FOOD: // Food
+        drawBlock(scrX + x-1, scrY + y-1, SOLID_FILL, BLUE);
+        break;
     }
 }
 
@@ -149,9 +208,34 @@ void  SnakeGame::beginGame(){
     this->drawScreen();
     this->drawScoreBoard();
     this->drawScoreValue();
+    this->gameOver = false;
     this->gameThread();
 }
 
 void  SnakeGame::gameThread(){
+    while (!gameOver)
+    {
+        this->getKey2ChangeDirection();
+        this->setZone(this->snake->getPosition(), ZONE_VOID); //delete old position
+        this->snake->move(); // move head to other position
 
+        this->logic();
+
+        this->setZone(this->snake->getPosition(), ZONE_HEAD); // make new head in Zone
+           // this->drawScreen(); // draw ZONE // automated in setZone function
+        delay(this->getGameSpeed()); // delay each of game frame
+    }
+}
+
+void  SnakeGame::logic()
+{
+    point _pos = this->snake->getPosition();
+    int zoneStatus = this->getZone(_pos);
+    if (zoneStatus == ZONE_FOOD) //EAT FOOD
+    {
+        this->setScore(this->getScore() + 10);
+    }
+    else
+    if (zoneStatus == ZONE_WALL || zoneStatus == ZONE_TAIL)
+        this->gameOver = true;
 }

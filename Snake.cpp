@@ -1,93 +1,111 @@
 #include "Classes.h" //included <vector>
-
+#include "Declaration.h"
 
 #include <stdlib.h>
 
 using namespace std;
 
 Snake::Snake(int _x, int _y){
-    setPosition(_x, _y);
+    this->setPosition(_x, _y);
 }
 
 Snake::Snake(point _pos){
-    setPosition(_pos);
+    this->setPosition(_pos);
 }
 
 Snake::~Snake() {}
 
 void Snake::setPosition(int _x, int _y){
-    pos.x = _x;
-    pos.y = _y;
+    this->pos.x = _x;
+    this->pos.y = _y;
 }
 
 void Snake::setPosition(point _pos){
-    pos = _pos;
+    this->pos = _pos;
 }
 
 point Snake::getPosition(){
-    return pos;
+    return this->pos;
 }
 
 void Snake::setTailLen(int _len){
-    tailLen = _len;
+    this->tailLen = _len;
 }
 
 int Snake::getTailLen(){
-    return tailLen;
+    return this->tailLen;
 }
 
 void Snake::setDirection(SnakeDirection _direction, bool _antiReverse)
 {
+    SnakeDirection oldDir = this->getDirection();
     if (_antiReverse)
     {
-        if ( abs(getDirection() - _direction) != 1 ) //==1 is reversed case
-            direction = _direction;
+        if ((oldDir == LEFT && _direction != RIGHT) ||
+            (oldDir == RIGHT && _direction != LEFT) ||
+            (oldDir == UP && _direction != DOWN)    ||
+            (oldDir == DOWN && _direction != UP))
+                this->direction = _direction;
     }
     else
-        direction = _direction;
+        this->direction = _direction;
 }
 
 SnakeDirection Snake::getDirection(){
-    return direction;
+    return this->direction;
 }
 
 void Snake::insertTails(point _tailPos)
 {
-    tails.insert(tails.begin(), _tailPos);
+    this->tails.insert(tails.begin(), _tailPos);
 }
 
 void Snake::move()
 {
-    point oldPos = getPosition(); // get old postion
-    SnakeDirection newDirection = getDirection(); // get direction
+    point oldPos = this->getPosition(); // get old postion
+    point newPos;
+    SnakeDirection newDirection = this->getDirection(); // get direction
     switch (newDirection)
     {
         case UP:
-                setPosition(oldPos.x, oldPos.y - 1);
+                newPos.x = oldPos.x;
+                newPos.y = oldPos.y - 1;
                 break;
         case DOWN:
-                setPosition(oldPos.x, oldPos.y + 1);
+                newPos.x = oldPos.x;
+                newPos.y = oldPos.y + 1;
                 break;
         case LEFT:
-                setPosition(oldPos.x - 1, oldPos.y);
+                newPos.x = oldPos.x - 1;
+                newPos.y = oldPos.y;
                 break;
         case RIGHT:
-                setPosition(oldPos.x + 1, oldPos.y);
+                newPos.x = oldPos.x + 1;
+                newPos.y = oldPos.y;
                 break;
     }
+    if (newPos.x == 0)
+        newPos.x = playZoneW - 1;
+    if (newPos.y == 0)
+        newPos.y = playZoneH - 1;
+    if (newPos.x == playZoneW)
+        newPos.x = 1;
+    if (newPos.y == playZoneH)
+        newPos.y = 1;
+    this->setPosition(newPos);
 }
 
 vector<point> Snake::getTails(){
-    return tails;
+    return this->tails;
 }
 
 void Snake::popTails(){
-    tails.pop_back();
+    this->tails.pop_back();
 }
 
 void Snake::saveTails()
 {
-    insertTails(getPosition()); //insert current position into tails
-    while (getTailLen() != getTails().size())
-        popTails();
+    this->insertTails(getPosition()); //insert current position into tails
+    while (this->getTailLen() != this->getTails().size())
+        this->popTails();
 }
