@@ -33,10 +33,10 @@ public:
     void  saveTails();
 
 private:
-        point pos;
-        int   tailLen = 0; //length of Tails;
-        vector<point> tails;
-        SnakeDirection direction = RIGHT; //default direction
+    point pos;
+    int   tailLen = 0; //length of Tails;
+    vector<point> tails;
+    SnakeDirection direction = RIGHT; //default direction
 };
 
 class SnakeGame{
