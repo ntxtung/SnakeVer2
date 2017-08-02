@@ -1,7 +1,5 @@
-//#include <mmsystem.h>
-//#pragma comment(lib,"libwinmm.a")
-#include <windows.h>
 #include "Sound.h"
+#include <windows.h> //included mmsystem.h
 
 using namespace std;
 

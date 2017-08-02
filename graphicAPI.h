@@ -1,15 +1,22 @@
 #ifndef GRAPHICAPI_H_INCLUDED
 #define GRAPHICAPI_H_INCLUDED
 
-void setup();
-void showUnit(int x, int y, int pattern, int color);
+#include <graphics.h>
+
+/**
+Setup environment
+*/
+void initGraphic();
+
+/**
+Draw square block at (x,y)
+    @param x
+    @param y
+    @param pattern See more fill_styles enum
+*/
+void drawBlock(int x, int y, fill_styles pattern, int color);
+
 void gradientStyle1 ();
-
-
-
-
-
-
 
 #endif
 

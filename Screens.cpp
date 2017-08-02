@@ -1,24 +1,11 @@
-#ifndef DECLARATION_H_INCLUDED
-    #include "Declaration.h"
-#endif// DECLARATION_H_INCLUDED
-
-#ifndef GRAPHICAPI_H_INCLUDED
-    #include "GraphicAPI.h"
-#endif // GRAPHICAPI_H_INCLUDED
-
-#ifndef SOUND_H_INCLUDED
-    #include "Sound.h"
-#endif // SOUND_H_INCLUDED
-
-#ifndef GAMEPLAY_H_INCLUDED
-    #include "GamePlay.h"
-#endif // GAMEPLAY_H_INCLUDED
-
-#include "Screens.h"
-
 #include <iostream>
-#include <conio.h>
-#include <windows.h>
+#include <stdio.h>
+
+#include "Declaration.h"
+#include "GraphicAPI.h"
+#include "Sound.h"
+#include "GamePlay.h"
+#include "Screens.h"
 
 using namespace std;
 
@@ -27,36 +14,33 @@ extern bool gameOver;
 void mainMenu()
 {
     //gradientStyle1();
-    playSound("soundtrack\\StartScreen.wav",1);
+    playSound(SOUND_START_SCREEN, 1);
 
-    int logoX=250;
-    int logoY=50;
-    int order=1;
+    int logoX = 250;
+    int logoY = 50;
+    int order = 1;
 
     settextstyle(BOLD_FONT, HORIZ_DIR, 2);
-    outtextxy(10,H-30,"Copyright by RIP_FINAL @ 2017");
-    outtextxy(W-400,H-30,"CSE IU - International University");
+    outtextxy(10,H-30, TEXT_COPYRIGHT);
+    outtextxy(W-400,H-30, TEXT_MAJOR);
     settextstyle(BOLD_FONT, HORIZ_DIR, 3);
-    outtextxy(470,500,"[Press any key to start]");
+    outtextxy(470,500, TEXT_PRESSKEY);
 
     while (!kbhit())
     {
         if (order%4+1 == 1)
-            readimagefile("picture\\snake1.bmp",logoX, logoY, logoX + 312*2.5, logoY + 65*2.5);
+            readimagefile(IMG_SNAKE1, logoX, logoY, logoX + 312*2.5, logoY + 65*2.5);
         if (order%4+1 == 2)
-            readimagefile("picture\\snake2.bmp",logoX, logoY, logoX + 312*2.5, logoY + 65*2.5);
+            readimagefile(IMG_SNAKE2, logoX, logoY, logoX + 312*2.5, logoY + 65*2.5);
         if (order%4+1 == 3)
-            readimagefile("picture\\snake3.bmp",logoX, logoY, logoX + 312*2.5, logoY + 65*2.5);
+            readimagefile(IMG_SNAKE3, logoX, logoY, logoX + 312*2.5, logoY + 65*2.5);
         if (order%4+1 == 4)
-            readimagefile("picture\\snake4.bmp",logoX, logoY, logoX + 312*2.5, logoY + 65*2.5);
+            readimagefile(IMG_SNAKE4, logoX, logoY, logoX + 312*2.5, logoY + 65*2.5);
         order++;
         Sleep(700);
     }
 
-
-
-
-    getch();
+    //getch();
     playScreen();
 }
 
@@ -68,7 +52,7 @@ void playScreen ()
     while (!gameOver)
         draw();
 
-    cout << " > GAME OVER\n";
+
 }
 
 void mapScreen()
@@ -99,16 +83,13 @@ void gameOverScreen()
     cleardevice();
     int logoX=400;
     int logoY=50;
-    readimagefile("picture\\Gameover.bmp",logoX, logoY, logoX + 176*2.5, logoY + 85*2.5);
+  
+    readimagefile(IMG_GAMEOVER, logoX, logoY, logoX + 176*2.5, logoY + 85*2.5);
 
     settextstyle(BOLD_FONT, HORIZ_DIR, 3);
-    outtextxy(470,500,"[Press any key to exit]");
+    outtextxy(620,500,"[Press any key to exit]");
 
-
-
-
-
-    playSound("soundtrack\\gameover.wav",1);
+    playSound(SOUND_GAMEOVER, 1);
     getch();
 
 }
