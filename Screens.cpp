@@ -40,7 +40,7 @@ void mainMenu()
         Sleep(700);
     }
 
-    getch();
+    //getch();
     playScreen();
 }
 
@@ -52,7 +52,7 @@ void playScreen ()
     while (!gameOver)
         draw();
 
-    cout << " > GAME OVER\n";
+
 }
 
 void mapScreen()
@@ -83,10 +83,11 @@ void gameOverScreen()
     cleardevice();
     int logoX=400;
     int logoY=50;
+  
     readimagefile(IMG_GAMEOVER, logoX, logoY, logoX + 176*2.5, logoY + 85*2.5);
 
     settextstyle(BOLD_FONT, HORIZ_DIR, 3);
-    outtextxy(470,500, TEXT_PRESSKEY);
+    outtextxy(620,500,"[Press any key to exit]");
 
     playSound(SOUND_GAMEOVER, 1);
     getch();
