@@ -1,7 +1,7 @@
 #include "Declaration.h"
 #include "GraphicAPI.h"
 
-void setup()
+void initGraphic()
 {
     initwindow(W, H, "THIS IS A SNAKE GAME!");
 }
@@ -13,6 +13,11 @@ void drawBlock(int x, int y, fill_styles pattern, int color)
         (y + scrY -1) * unitLength + 1 ,
         (x + scrX -1) * unitLength + unitLength ,
         (y + scrY -1) * unitLength + unitLength);
+}
+
+void drawImage(int x, int y)
+{
+    readimagefile();
 }
 
 void gradientStyle1()

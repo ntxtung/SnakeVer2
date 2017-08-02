@@ -6,7 +6,7 @@
 /**
 Setup environment
 */
-void setup();
+void initGraphic();
 
 /**
 Draw square block at (x,y)

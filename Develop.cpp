@@ -63,9 +63,9 @@ void gradientTest(bool isOn)
 
 void develop()
 {
-    showInfo(0);
-    showGrid(0);
+    showInfo(1);
+    showGrid(1);
 
-    showCross(0);
-    gradientTest(0);
+    showCross(1);
+    gradientTest(1);
 }

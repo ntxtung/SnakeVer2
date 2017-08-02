@@ -1,6 +1,8 @@
 #include <vector>
 #include <windows.h> //included Windows.h
 #include <stdio.h>
+#include <iostream>
+
 
 #include "Declaration.h"
 #include "GraphicAPI.h"
@@ -21,7 +23,7 @@ int zone[playZoneH+1][playZoneW+1] = {0};
 int score = 0;
 int snakeX = (playZoneW/2), snakeY = (playZoneH/2);
 int foodX = 0, foodY = 0;
-int gameSpeed = 50;
+int gameSpeed = 40;
 int timer = 0;
 int numTails = 1;
 
@@ -107,7 +109,7 @@ void getKey()
         (tempDir=='L' && direct!='R') ||
         (tempDir=='R' && direct!='L')
         )
-    direct=tempDir;
+    direct = tempDir;
     //cout << direct;
 }
 
@@ -132,8 +134,8 @@ void snakeMove()
 //Make snake
 void saveTail ()
 {
-    tailX.insert(tailX.begin(),snakeX);
-    tailY.insert(tailY.begin(),snakeY);
+    tailX.insert(tailX.begin(), snakeX);
+    tailY.insert(tailY.begin(), snakeY);
     //deleteTail
     while (tailX.size()>numTails || tailY.size()>numTails)
     {
@@ -153,8 +155,8 @@ void makeSnake()
         else
             zone[tailY[i]][tailX[i]] = 2;
     }
-
 }
+
 void deleteSnake()
 {
     zone[snakeY][snakeX] = 0;
@@ -187,20 +189,20 @@ void showScoreBoard()
                    (scrY + 0) * unitLength - i,
                    (scrX + playZoneW + 7 ) * unitLength + i,
                    (scrY + 2) * unitLength + i);
-
 }
 //------------------------------
 void showScoreValue()
 {
-    char Score[5] = {};
+    char Score[7] = {};
     string str;
     int temp = score;
 
     sprintf(Score,"%d",score);
 
+    settextjustify(CENTER_TEXT, CENTER_TEXT);
     settextstyle(BOLD_FONT, HORIZ_DIR, 4);
-    outtextxy((scrX + playZoneW + 1.4)  * unitLength + 10,
-              (scrY + 0.6) * unitLength,
+    outtextxy((scrX + playZoneW + 3.6)  * unitLength + 10,
+              (scrY + 1.2) * unitLength,
                Score);
 }
 //-------------------------------
@@ -212,35 +214,21 @@ void drawScreen()
          {
             switch (zone[i][j])
             {
-                case 0: // None
-                {
-                    drawBlock(scrX + j -1, scrY + i-1, SOLID_FILL, BLACK);
-                    break;
-                }
-                case 1: // Danger block
-                {
-                    drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, RED);
-                    break;
-                }
-                case 2: // Head
-                {
-                    drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, RGB(0,155,155));
-                    break;
-                }
-                case 3: // Tail
-                {
-                    drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, GREEN);
-                    break;
-                }
-                case 4: // Food
-                {
-                    drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, BLUE);
-                    break;
-                }
-                default: // None
-                {
-                    //drawBlock(scrX + j, scrY + i, SOLID_FILL, BLACK);
-                }
+            case 0: // None
+                drawBlock(scrX + j -1, scrY + i-1, SOLID_FILL, BLACK);
+                break;
+            case 1: // Danger block
+                drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, RED);
+                break;
+            case 2: // Head
+                drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, RGB(0,155,155));
+                break;
+            case 3: // Tail
+                drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, GREEN);
+                break;
+            case 4: // Food
+                drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, YELLOW);
+                break;
             }
         }
     }
@@ -253,10 +241,10 @@ void logic()
 
     if (snakeX == foodX && snakeY == foodY)
     {
-        score += 10;
-        playSound(SOUND_EAT,0);
-        numTails++;
-        foodSpawn();
+        score += 10; //increase score
+        playSound(SOUND_EAT, 0);
+        numTails++; //increase tails
+        foodSpawn(); //spawn next food
     }
 
     if (zone[snakeY][snakeX] == 1 || zone[snakeY][snakeX] == 3)
@@ -287,14 +275,25 @@ void init()
 {
     makePlayZone();
     showScoreBoard();
-    score = 0; //reset socre
-    tailX.clear();
-    tailY.clear();
+    score = 0; //reset score
+    tailX.clear(); //reset tailX
+    tailY.clear(); //reset tailY
     tailX.insert(tailX.begin(),snakeX-1);
     tailY.insert(tailY.begin(),snakeY);
-    foodSpawn();
+    foodSpawn(); //spawn first food
 }
 //--------------------------------
+void cDraw()
+{
+    for (int i=0; i<playZoneH+1; i++)
+    {
+        for (int j=0; j<playZoneW+1; j++)
+        {
+            cout << zone[i][j];
+        }
+        cout << endl;
+    }
+}
 void draw()
 {
     getKey();
@@ -302,10 +301,13 @@ void draw()
     if (gameStart && !gameOver)
     {
         //develop();    //debug only
+
         snakeMove();    //change head of snake
         makeSnake();    //change head on matrix
         drawScreen();   //draw screen
 
+        //system("cls");
+       // cDraw();
         showScoreValue();
 
         logic();
