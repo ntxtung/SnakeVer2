@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <iostream>
 
+
 #include "Declaration.h"
 #include "GraphicAPI.h"
 #include "Develop.h"
@@ -213,35 +214,21 @@ void drawScreen()
          {
             switch (zone[i][j])
             {
-                case 0: // None
-                {
-                    drawBlock(scrX + j -1, scrY + i-1, SOLID_FILL, BLACK);
-                    break;
-                }
-                case 1: // Danger block
-                {
-                    drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, RED);
-                    break;
-                }
-                case 2: // Head
-                {
-                    drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, RGB(0,155,155));
-                    break;
-                }
-                case 3: // Tail
-                {
-                    drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, GREEN);
-                    break;
-                }
-                case 4: // Food
-                {
-                    drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, YELLOW);
-                    break;
-                }
-                default: // None
-                {
-                    //drawBlock(scrX + j, scrY + i, SOLID_FILL, BLACK);
-                }
+            case 0: // None
+                drawBlock(scrX + j -1, scrY + i-1, SOLID_FILL, BLACK);
+                break;
+            case 1: // Danger block
+                drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, RED);
+                break;
+            case 2: // Head
+                drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, RGB(0,155,155));
+                break;
+            case 3: // Tail
+                drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, GREEN);
+                break;
+            case 4: // Food
+                drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, YELLOW);
+                break;
             }
         }
     }

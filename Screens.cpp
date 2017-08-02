@@ -13,7 +13,7 @@ extern bool gameOver;
 
 void mainMenu()
 {
-    //gradientStyle1();
+    initGraphic();
     playSound(SOUND_START_SCREEN, 1);
 
     int logoX = 250;
@@ -26,7 +26,7 @@ void mainMenu()
     settextstyle(BOLD_FONT, HORIZ_DIR, 3);
     outtextxy(470,500, TEXT_PRESSKEY);
 
-    while (!kbhit())
+    while ( !kbhit() ) //PRESS KEY TO CONTINUE
     {
         if (order%4+1 == 1)
             readimagefile(IMG_SNAKE1, logoX, logoY, logoX + 312*2.5, logoY + 65*2.5);
@@ -39,9 +39,6 @@ void mainMenu()
         order++;
         Sleep(700);
     }
-
-    //getch();
-    playScreen();
 }
 
 void playScreen ()
@@ -83,7 +80,7 @@ void gameOverScreen()
     cleardevice();
     int logoX=400;
     int logoY=50;
-  
+
     readimagefile(IMG_GAMEOVER, logoX, logoY, logoX + 176*2.5, logoY + 85*2.5);
 
     settextstyle(BOLD_FONT, HORIZ_DIR, 3);

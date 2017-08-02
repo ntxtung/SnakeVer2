@@ -3,8 +3,6 @@
 
 // CONSTANTS
 
-#define Debug   false
-
 #define KEY_UP      72
 #define KEY_DOWN    80
 #define KEY_LEFT    75
@@ -27,7 +25,6 @@ const int playZoneH = 20;
 const int scrX = 1;    //Screen LeftTop X
 const int scrY = 1;    //Screen LeftTop Y
 
-
 ///      SOUND              | FILENAME
  #define SOUND_START_SCREEN "soundtrack\\StartScreen.wav"
  #define SOUND_EAT          "soundtrack\\eat_sound.wav"
@@ -43,8 +40,8 @@ const int scrY = 1;    //Screen LeftTop Y
  #define TEXT_PRESSKEY      "[Press any key to start]"
  #define TEXT_COPYRIGHT     "Copyright by RIP_FINAL @ 2017"
  #define TEXT_MAJOR         "CSE IU - International University"
- ///      MAP FILE   | FILENAME
- #define MAP_TEMPLATE "map\\template.txt"
+ ///      MAP FILE          | FILENAME
+ #define MAP_TEMPLATE       "map\\template.txt"
 
 /////////////////////////////////
 
