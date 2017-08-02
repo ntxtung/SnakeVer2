@@ -47,20 +47,24 @@ class Snake
 class SnakeGame
 {
 public:
+    SnakeGame();
     void  setZone(int _x, int _y, int _val);
     void  setZone(point _pos, int _val);
     int   getZone(int _x, int _y);
     int   getZone(point _pos);
     int   getScore();
-
+    void  drawScreen(); // draw Zone to GameScreen
+  //  void  game();
 private:
     int zone[playZoneH+1][playZoneW+1] = { {0} };
     int score = 0;
-    Snake snake;
+//    Snake snake(1,1);//(5, 5);
     //~~
     int secureKey = GetTickCount();
     //~~ FUNCTION
     void  setScore(int _score);
+    void  snakeMove();
+
 };
 
 #endif // CLASSES_H_INCLUDED
