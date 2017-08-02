@@ -14,25 +14,25 @@ struct point{
 };
 
 class Snake{
-    public:
-        Snake(int _x, int _y);
-        Snake(point _pos);
-        ~Snake();
-        void  setPosition(int _x, int _y);
-        void  setPosition(point _pos);
-        point getPosition();
-        void  setTailLen(int _len);
-        int   getTailLen();
-        void  setDirection(SnakeDirection _direction, bool _antiReverse = true);
-        SnakeDirection getDirection();
-        void  insertTails(point _tailPos);
-        vector<point>  getTails();
-        void  popTails(); //NEED SET ZONE TO 0
+public:
+    Snake(int _x, int _y);
+    Snake(point _pos);
+    ~Snake();
+    void  setPosition(int _x, int _y);
+    void  setPosition(point _pos);
+    point getPosition();
+    void  setTailLen(int _len);
+    int   getTailLen();
+    void  setDirection(SnakeDirection _direction, bool _antiReverse = true);
+    SnakeDirection getDirection();
+    void  insertTails(point _tailPos);
+    vector<point>  getTails();
+    void  popTails(); //NEED SET ZONE TO 0
 
-        void  move();
-        void  saveTails();
+    void  move();
+    void  saveTails();
 
-    private:
+private:
         point pos;
         int   tailLen = 0; //length of Tails;
         vector<point> tails;
@@ -51,7 +51,9 @@ public:
 
     void  loadMap(char *_dir);
     void  beginGame();
+
 private:
+    bool  gameOver = false;
     bool  gameStarted = false;
     int   zone[playZoneH+1][playZoneW+1] = { {0} };
     int   score = 0;

@@ -48,8 +48,6 @@ void playScreen ()
     init();
     while (!gameOver)
         draw();
-
-
 }
 
 void mapScreen()
