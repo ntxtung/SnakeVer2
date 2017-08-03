@@ -32,3 +32,13 @@
 - Map added
 - Complete modified to class
 - Bug fixed
+
+3/8/2017
+- Map improve
+- Gameplay improve
+- Instruction added
+- Game loop enabled
+
+4/8/2017
+- PRESENTATION DAY!!!!
+- RIP US!
