@@ -30,7 +30,7 @@ void outputHscore()
 
 void processHighScore(int score)
 {
-    inputHscore();
+
   //  if (score > highscore)
     {
 //        highscore = score;

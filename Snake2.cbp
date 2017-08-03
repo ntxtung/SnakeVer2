@@ -5,6 +5,7 @@
 		<Option title="Snake2" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
+		<Option virtualFolders="Development Tool\;Graphic tool\;Gameplay function\;Gameplay function\User Interface\;Sound system\;Gameplay function\File process\;Gameplay function\MAIN CLASS\;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/Snake2" prefix_auto="1" extension_auto="1" />
@@ -42,20 +43,36 @@
 		</Linker>
 		<Unit filename="Classes.h" />
 		<Unit filename="Declaration.h" />
-		<Unit filename="Develop.cpp" />
+		<Unit filename="Develop.cpp">
+			<Option virtualFolder="Development Tool/" />
+		</Unit>
 		<Unit filename="Develop.h" />
-		<Unit filename="Highscore.cpp" />
+		<Unit filename="Highscore.cpp">
+			<Option virtualFolder="Gameplay function/File process/" />
+		</Unit>
 		<Unit filename="Highscore.h" />
-		<Unit filename="Screens.cpp" />
+		<Unit filename="Screens.cpp">
+			<Option virtualFolder="Gameplay function/User Interface/" />
+		</Unit>
 		<Unit filename="Screens.h" />
-		<Unit filename="Snake.cpp" />
-		<Unit filename="SnakeGame.cpp" />
-		<Unit filename="Sound.cpp" />
+		<Unit filename="Snake.cpp">
+			<Option virtualFolder="Gameplay function/MAIN CLASS/" />
+		</Unit>
+		<Unit filename="SnakeGame.cpp">
+			<Option virtualFolder="Gameplay function/MAIN CLASS/" />
+		</Unit>
+		<Unit filename="Sound.cpp">
+			<Option virtualFolder="Sound system/" />
+		</Unit>
 		<Unit filename="Sound.h" />
-		<Unit filename="graphicAPI.cpp" />
+		<Unit filename="graphicAPI.cpp">
+			<Option virtualFolder="Graphic tool/" />
+		</Unit>
 		<Unit filename="graphicAPI.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="map.cpp" />
+		<Unit filename="map.cpp">
+			<Option virtualFolder="Gameplay function/File process/" />
+		</Unit>
 		<Unit filename="map.h" />
 		<Extensions>
 			<code_completion />
