@@ -77,6 +77,7 @@ private:
     void  gameThread(); // main game thread
     void  logic();
     void  foodSpawn();
+    void  saveTail();
 };
 
 #endif // CLASSES_H_INCLUDED

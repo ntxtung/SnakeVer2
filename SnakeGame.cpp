@@ -16,7 +16,7 @@ SnakeGame::SnakeGame(){
 }
 
 SnakeGame::~SnakeGame(){
-    closegraph();
+    //closegraph();
 }
 
 inline void  SnakeGame::setZone(int _x, int _y, int _val){
@@ -238,6 +238,7 @@ void  SnakeGame::logic(){
     {
         this->setScore(this->getScore() + 10);
         this->foodSpawn();
+        this->snake->setTailLen(this->snake->getTailLen()+1);
     }
     else
     if (zoneStatus == ZONE_WALL || zoneStatus == ZONE_TAIL)
@@ -245,6 +246,18 @@ void  SnakeGame::logic(){
 }
 
 void  SnakeGame::foodSpawn(){
+
+void  SnakeGame::saveTail(){
+    this->snake->tails.insert(tails.begin(), this->snake->getPosition());
+    //deleteTail
+    while ()
+    while (tailX.size()>numTails || tailY.size()>numTails)
+    {
+        zone[tailY[tailY.size()-1]][tailX[tailX.size()-1]] = 0;
+        tailX.pop_back();
+        tailY.pop_back();
+    }
+}
     point _snakePos = this->snake->getPosition();
     point _foodPos;
     do

@@ -175,64 +175,7 @@ void foodSpawn()
     zone[foodY][foodX] = 4; //make food
     //cout << "FoodX = " << foodX << " foodY = " << foodY << endl;
 }
-//---------------------------------
-void makePlayZone()
-{
-    for (int i=0; i<5; i++)
-        rectangle(scrX * unitLength - i, scrY * unitLength - i, (scrX + playZoneW -1 ) * unitLength + i, (scrY + playZoneH -1 ) * unitLength + i);
-}
-//--------------------------------
-void showScoreBoard()
-{
-    for (int i=0; i<5; i++)
-        rectangle( (scrX + playZoneW + 1)  * unitLength - i,
-                   (scrY + 0) * unitLength - i,
-                   (scrX + playZoneW + 7 ) * unitLength + i,
-                   (scrY + 2) * unitLength + i);
-}
-//------------------------------
-void showScoreValue()
-{
-    char Score[7] = {};
-    string str;
-    int temp = score;
 
-    sprintf(Score,"%d",score);
-
-    settextjustify(CENTER_TEXT, CENTER_TEXT);
-    settextstyle(BOLD_FONT, HORIZ_DIR, 4);
-    outtextxy((scrX + playZoneW + 3.6)  * unitLength + 10,
-              (scrY + 1.2) * unitLength,
-               Score);
-}
-//-------------------------------
-void drawScreen()
-{
-    for (int i=1; i<playZoneH; i++)
-    {
-        for (int j=1; j<playZoneW; j++)
-         {
-            switch (zone[i][j])
-            {
-            case 0: // None
-                drawBlock(scrX + j -1, scrY + i-1, SOLID_FILL, BLACK);
-                break;
-            case 1: // Danger block
-                drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, RED);
-                break;
-            case 2: // Head
-                drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, RGB(0,155,155));
-                break;
-            case 3: // Tail
-                drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, GREEN);
-                break;
-            case 4: // Food
-                drawBlock(scrX + j-1, scrY + i-1, SOLID_FILL, YELLOW);
-                break;
-            }
-        }
-    }
-}
 
 // Game Logical
 void logic()
