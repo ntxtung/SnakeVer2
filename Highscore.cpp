@@ -14,7 +14,20 @@ void inputHscore()
     inf.close();
 }
 
-void highScore()
+void outputHscore()
 {
+    ouf.open("Highscore.txt");
+    ouf << highscore;
 
+    ouf.close();
+}
+
+void processHighScore()
+{
+    inputHscore();
+    if (score > highscore)
+    {
+        highscore = score;
+        outputHscore();
+    }
 }
