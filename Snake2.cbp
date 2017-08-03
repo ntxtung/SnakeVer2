@@ -42,11 +42,6 @@
 		</Linker>
 		<Unit filename="Classes.h" />
 		<Unit filename="Declaration.h" />
-		<Unit filename="Develop.cpp" />
-		<Unit filename="Develop.h" />
-		<Unit filename="Food.cpp" />
-		<Unit filename="GamePlay.cpp" />
-		<Unit filename="GamePlay.h" />
 		<Unit filename="Highscore.cpp" />
 		<Unit filename="Highscore.h" />
 		<Unit filename="Screens.cpp" />
