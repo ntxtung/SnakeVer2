@@ -4,7 +4,6 @@
 #include "Declaration.h"
 #include "GraphicAPI.h"
 #include "Sound.h"
-#include "GamePlay.h"
 #include "Screens.h"
 
 using namespace std;
@@ -43,37 +42,27 @@ void mainMenu()
 
 void playScreen ()
 {
-    stopSound(); //turn off music
-    cleardevice(); //clear menu screen
-    init();
-    while (!gameOver)
-        draw();
 }
 
 void mapScreen()
 {
-
 }
 
 void aboutScreen()
 {
-
 }
 
 void resultScreen()
 {
-
 }
 
 void selectMenu()
 {
-
 }
 
 //------------------------------
 void gameOverScreen()
 {
-    gameOver = true;
     fflush(stdin);
     cleardevice();
     int logoX=400;
@@ -82,9 +71,8 @@ void gameOverScreen()
     readimagefile(IMG_GAMEOVER, logoX, logoY, logoX + 176*2.5, logoY + 85*2.5);
 
     settextstyle(BOLD_FONT, HORIZ_DIR, 3);
-    outtextxy(620,500,"[Press any key to exit]");
+    outtextxy(620,500, TEXT_PRESSKEY);
 
     playSound(SOUND_GAMEOVER, 1);
     getch();
-
 }

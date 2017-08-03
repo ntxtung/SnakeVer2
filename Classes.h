@@ -31,11 +31,12 @@ public:
 
     void  move();
     void  saveTails();
+    vector<point> tails;
 
 private:
     point pos;
     int   tailLen = 0; //length of Tails; .
-    vector<point> tails;
+
     SnakeDirection direction = RIGHT; //default direction
 };
 
@@ -77,6 +78,8 @@ private:
     void  gameThread(); // main game thread
     void  logic();
     void  foodSpawn();
+    void  saveTail(point newTail);
+    void  makeTail();
 };
 
 #endif // CLASSES_H_INCLUDED

@@ -52,18 +52,18 @@
 
 1501175647 d:\project\snake2\gameplay.h
 
-1501692731 source:d:\github\snakever2\develop.cpp
+1501658397 source:d:\github\snakever2\develop.cpp
 	<iostream>
 	"Declaration.h"
 	"GraphicAPI.h"
 
-1500648614 d:\github\snakever2\develop.h
+1501177914 d:\github\snakever2\develop.h
 
-1501556002 d:\github\snakever2\gameplay.h
+1501591003 d:\github\snakever2\gameplay.h
 
-1501556002 d:\github\snakever2\screens.h
+1501591003 d:\github\snakever2\screens.h
 
-1501692731 source:d:\github\snakever2\screens.cpp
+1501763995 source:d:\github\snakever2\screens.cpp
 	<iostream>
 	<stdio.h>
 	"Declaration.h"
@@ -72,13 +72,13 @@
 	"GamePlay.h"
 	"Screens.h"
 
-1500614510 d:\github\snakever2\sound.h
+1501177914 d:\github\snakever2\sound.h
 
-1501556002 source:d:\github\snakever2\sound.cpp
+1501591003 source:d:\github\snakever2\sound.cpp
 	"Sound.h"
 	<windows.h>
 
-1501692731 source:d:\github\snakever2\gameplay.cpp
+1501762833 source:d:\github\snakever2\gameplay.cpp
 	<vector>
 	<windows.h>
 	<stdio.h>
@@ -94,41 +94,38 @@
 
 1501261255 d:\github\snakever2\cairoapi.h
 
-1501692731 d:\github\snakever2\declaration.h
+1501683369 d:\github\snakever2\declaration.h
 
-1501657304 d:\github\snakever2\graphicapi.h
+1501762988 d:\github\snakever2\graphicapi.h
 	<graphics.h>
 
-1501657304 source:d:\github\snakever2\graphicapi.cpp
+1501762800 source:d:\github\snakever2\graphicapi.cpp
 	"Declaration.h"
 	"GraphicAPI.h"
 
-1501760585 source:d:\github\snakever2\main.cpp
-	"GraphicAPI.h"
-	"Develop.h"
+1501764513 source:d:\github\snakever2\main.cpp
 	"Screens.h"
-	"Map.h"
 	"Classes.h"
 	<iostream>
 
-1501640649 d:\github\snakever2\map.h
+1501657714 d:\github\snakever2\map.h
 
-1501692731 source:d:\github\snakever2\map.cpp
+1501764548 source:d:\github\snakever2\map.cpp
 	<fstream>
 	<iostream>
 	"Map.h"
 	"Declaration.h"
 
-1501752025 d:\github\snakever2\classes.h
+1501763617 d:\github\snakever2\classes.h
 	"Declaration.h"
 	<vector>
 
-1501732883 source:d:\github\snakever2\snake.cpp
+1501685574 source:d:\github\snakever2\snake.cpp
 	"Classes.h"
 	"Declaration.h"
 	<stdlib.h>
 
-1501751749 source:d:\github\snakever2\snakegame.cpp
+1501764381 source:d:\github\snakever2\snakegame.cpp
 	<fstream>
 	<iostream>
 	<windows.h>
@@ -136,7 +133,14 @@
 	"Classes.h"
 	"GraphicAPI.h"
 	"Sound.h"
+	"Screens.h"
 
 1501732621 source:d:\github\snakever2\food.cpp
 	"Classes.h"
+
+1501763939 source:d:\github\snakever2\highscore.cpp
+	"Highscore.h"
+
+1501763883 d:\github\snakever2\highscore.h
+	<fstream>
 
