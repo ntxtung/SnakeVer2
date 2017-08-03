@@ -204,6 +204,7 @@ void  SnakeGame::loadMap(char *_dir){
 
 void  SnakeGame::beginGame(){
     stopSound();    //stop all sound
+    playSound("soundtrack\\Despacito.wav",1);
     cleardevice(); //remove screen
     this->drawBorder();
     this->drawScreen();
@@ -246,7 +247,30 @@ void  SnakeGame::logic(){
     }
     else
     if (zoneStatus == ZONE_WALL || zoneStatus == ZONE_TAIL)
+    {
         this->gameOver = true;
+        playSound("soundtrack\\hit_sound2.wav");
+        //Dead effect
+        cleardevice();
+
+        Sleep(100);
+        this -> drawScreen();
+        this -> drawBorder();
+        Sleep(300);
+
+
+        cleardevice();
+        Sleep(100);
+        this -> drawScreen();
+        this -> drawBorder();
+        Sleep(300);
+
+        cleardevice();
+
+        //
+        Sleep(1000);
+    }
+
 }
 
 void  SnakeGame::foodSpawn(){

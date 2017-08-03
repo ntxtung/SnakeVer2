@@ -18,7 +18,7 @@ void mainMenu()
     int logoX = 250;
     int logoY = 50;
     int order = 1;
-
+    settextjustify(LEFT_TEXT, BOTTOM_TEXT);
     settextstyle(BOLD_FONT, HORIZ_DIR, 2);
     outtextxy(10,H-30, TEXT_COPYRIGHT);
     outtextxy(W-400,H-30, TEXT_MAJOR);

@@ -18,6 +18,7 @@ int main()
         SnakeGame *game = new SnakeGame();
         game->loadMap("map\\map1.txt");
         game->beginGame();
+        cleardevice();
     }
     closegraph();
     return 0;
