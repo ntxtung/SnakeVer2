@@ -4,7 +4,6 @@
 #include "Declaration.h"
 #include "GraphicAPI.h"
 #include "Sound.h"
-#include "GamePlay.h"
 #include "Screens.h"
 
 using namespace std;
@@ -43,31 +42,22 @@ void mainMenu()
 
 void playScreen ()
 {
-    stopSound(); //turn off music
-    cleardevice(); //clear menu screen
-    init();
-    while (!gameOver)
-        draw();
 }
 
 void mapScreen()
 {
-
 }
 
 void aboutScreen()
 {
-
 }
 
 void resultScreen()
 {
-
 }
 
 void selectMenu()
 {
-
 }
 
 //------------------------------

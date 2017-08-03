@@ -231,8 +231,6 @@ void  SnakeGame::gameThread(){
 
         this->makeTail();
 
-        //this->setZone(oldPos, ZONE_VOID); //delete old position
-           // this->drawScreen(); // draw ZONE // automated in setZone function
         delay(this->getGameSpeed()); // delay each of game frame
     }
 }

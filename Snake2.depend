@@ -103,17 +103,14 @@
 	"Declaration.h"
 	"GraphicAPI.h"
 
-1501763787 source:d:\github\snakever2\main.cpp
-	"GraphicAPI.h"
-	"Develop.h"
+1501764513 source:d:\github\snakever2\main.cpp
 	"Screens.h"
-	"Map.h"
 	"Classes.h"
 	<iostream>
 
 1501657714 d:\github\snakever2\map.h
 
-1501662779 source:d:\github\snakever2\map.cpp
+1501764548 source:d:\github\snakever2\map.cpp
 	<fstream>
 	<iostream>
 	"Map.h"
@@ -128,7 +125,7 @@
 	"Declaration.h"
 	<stdlib.h>
 
-1501763347 source:d:\github\snakever2\snakegame.cpp
+1501764381 source:d:\github\snakever2\snakegame.cpp
 	<fstream>
 	<iostream>
 	<windows.h>
@@ -136,6 +133,7 @@
 	"Classes.h"
 	"GraphicAPI.h"
 	"Sound.h"
+	"Screens.h"
 
 1501732621 source:d:\github\snakever2\food.cpp
 	"Classes.h"
