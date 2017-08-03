@@ -58,7 +58,7 @@ private:
     bool  gameOver = true;
     int   zone[playZoneH+1][playZoneW+1] = { {0} };
     int   score = 0;
-    int   gameSpeed = 80;
+    int   gameSpeed = 20;
     Snake *snake = new Snake(playZoneW/2, playZoneH/2);
     //
     void  setSecureKey(int _val);
@@ -66,6 +66,7 @@ private:
     int   secureKey;
     //~~ FUNCTION
     void  setScore(int _score);
+
     void  getKey2ChangeDirection(); //getkey and auto change direction
     void  snakeMove(); //change position depending on direction
     void  drawPoint(int x, int y);
@@ -75,6 +76,7 @@ private:
     void  drawScoreValue(); // draw score in Scoreboard
     void  gameThread(); // main game thread
     void  logic();
+    void  foodSpawn();
 };
 
 #endif // CLASSES_H_INCLUDED

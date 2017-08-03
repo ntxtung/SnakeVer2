@@ -2,6 +2,7 @@
 What a famous game! Why dont we build the own one?
 # Environment
   + IDE: CodeBlocks 16.01
+  + Compiler: MinGW
   + OS: Windows 10 x64
   + Language: English
 # Authors
