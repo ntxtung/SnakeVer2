@@ -25,30 +25,4 @@ void makeTemplateMap()
     output.close();
 }
 
-void loadMap1()
-{
-    input.open("map\\map1.txt");
-    char ch;
-    for (int i=0; i<playZoneH+1; i++)
-    {
-        for (int j=0; j<playZoneW+1; j++)
-        {
-            input >> ch;
-            if (ch == '#' && ch != '\n')
-                zone[i][j] = 1;
-
-        }
-
-    }
-    input.close();
-
-    for (int i=0; i<playZoneH+1; i++)
-    {
-        for (int j=0; j<playZoneW+1; j++)
-        {
-            cout << zone[i][j];
-        }
-        cout << endl;
-    }
-}
 

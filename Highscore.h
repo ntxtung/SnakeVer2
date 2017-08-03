@@ -3,6 +3,6 @@
 
 #include <fstream>
 
-void processHighScore();
+void processHighScore(int score);
 
 #endif // HIGHSCORE_H_INCLUDED
