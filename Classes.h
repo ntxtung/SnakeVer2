@@ -39,6 +39,21 @@ private:
     SnakeDirection direction = RIGHT; //default direction
 };
 
+class Food{
+public:
+    Food(int _x, int _y);
+    Food(point _pos);
+    ~Food();
+    void  setPos(int _x, int _y);
+    void  setPos(point _pos);
+    point getPos();
+    void  setColor(int _color);
+    int   getColor();
+private:
+    point pos; //position
+    int   color = 14; //YELLOW
+};
+
 class SnakeGame{
 public:
     SnakeGame(); // construction
@@ -56,6 +71,7 @@ public:
 
 private:
     bool  gameOver = true;
+    Food  *food = new Food();
     int   zone[playZoneH+1][playZoneW+1] = { {0} };
     int   score = 0;
     int   gameSpeed = 80;
@@ -66,6 +82,9 @@ private:
     int   secureKey;
     //~~ FUNCTION
     void  setScore(int _score);
+    void  setFoodPosition(point _pos);
+    void  setFoodPosition(int _x, int _y);
+    point getFoodPosition();
     void  getKey2ChangeDirection(); //getkey and auto change direction
     void  snakeMove(); //change position depending on direction
     void  drawPoint(int x, int y);
@@ -75,6 +94,7 @@ private:
     void  drawScoreValue(); // draw score in Scoreboard
     void  gameThread(); // main game thread
     void  logic();
+    void  foodSpawn();
 };
 
 #endif // CLASSES_H_INCLUDED

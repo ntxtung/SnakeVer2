@@ -10,7 +10,7 @@
 using namespace std;
 
 SnakeGame::SnakeGame(){
-    initGraphic();
+    //initGraphic();
     srand(GetTickCount());
     this->setSecureKey(rand()%10 + 1);
 }
@@ -216,12 +216,15 @@ void  SnakeGame::gameThread(){
     while (!gameOver)
     {
         this->getKey2ChangeDirection();
-        this->setZone(this->snake->getPosition(), ZONE_VOID); //delete old position
+        point oldPos = this->snake->getPosition();
+
         this->snake->move(); // move head to other position
+
 
         this->logic();
 
         this->setZone(this->snake->getPosition(), ZONE_HEAD); // make new head in Zone
+        this->setZone(oldPos, ZONE_VOID); //delete old position
            // this->drawScreen(); // draw ZONE // automated in setZone function
         delay(this->getGameSpeed()); // delay each of game frame
     }
@@ -238,4 +241,29 @@ void  SnakeGame::logic()
     else
     if (zoneStatus == ZONE_WALL || zoneStatus == ZONE_TAIL)
         this->gameOver = true;
+}
+
+void  SnakeGame::setFoodPosition(point _pos){
+    this->foodPos = _pos;
+}
+void  SnakeGame::setFoodPosition(int _x, int _y){
+    this->foodPos.x = _x;
+    this->foodPos.y = _y;
+}
+point  SnakeGame::getFoodPosition(){
+    return this->foodPos;
+}
+
+void  SnakeGame::foodSpawn(){
+    point _snakePos = this->snake->getPosition();
+    point _foodPos;
+    do
+    {
+        _foodPos = this->getFoodPosition();
+        srand(_snakePos.x + _snakePos.y + _foodPos.x + _foodPos.y + GetTickCount()); //random seed {updated by HTML 31/7/17}
+        this->setFoodPosition(1 + rand() % (playZoneW-1), 1 + rand() % (playZoneH-1));
+    }
+    while ( this->getZone(this->getFoodPosition()) != 0); // || (foodX==snakeX && foodY==snakeY));
+    this->setZone(foodPos, ZONE_FOOD);
+    //cout << "FoodX = " << foodX << " foodY = " << foodY << endl;
 }
