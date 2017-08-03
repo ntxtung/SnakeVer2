@@ -5,6 +5,7 @@
 //#define DEBUG
 
 #include <iostream>
+#include <time.h>
 
 
 int main()
@@ -16,7 +17,38 @@ int main()
     {
         mainMenu();
         SnakeGame *game = new SnakeGame();
-        game->loadMap("map\\map1.txt");
+        int randomMap;
+        srand(time(NULL));
+        randomMap = rand() % 7 + 1;
+
+        switch (randomMap)
+        {
+        case 1:
+            game->loadMap("map\\map1.txt");
+            break;
+        case 2:
+            game->loadMap("map\\map2.txt");
+            break;
+        case 3:
+            game->loadMap("map\\map3.txt");
+            break;
+        case 4:
+            game->loadMap("map\\map4.txt");
+            break;
+        case 5:
+            game->loadMap("map\\map5.txt");
+            break;
+        case 6:
+            game->loadMap("map\\map6.txt");
+            break;
+        case 7:
+            game->loadMap("map\\map7.txt");
+            break;
+        default:
+            game->loadMap("map\\map0.txt");
+            break;
+        }
+
         game->beginGame();
         cleardevice();
     }

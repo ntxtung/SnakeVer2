@@ -71,7 +71,7 @@
 	"Sound.h"
 	"Screens.h"
 
-1500614510 d:\github\snakever2\sound.h
+1501777254 d:\github\snakever2\sound.h
 
 1501556002 source:d:\github\snakever2\sound.cpp
 	"Sound.h"
@@ -102,11 +102,12 @@
 	"Declaration.h"
 	"GraphicAPI.h"
 
-1501768903 source:d:\github\snakever2\main.cpp
+1501778020 source:d:\github\snakever2\main.cpp
 	"Screens.h"
 	"Classes.h"
 	"graphicAPI.h"
 	<iostream>
+	<time.h>
 
 1501640649 d:\github\snakever2\map.h
 
