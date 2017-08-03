@@ -12,7 +12,7 @@ extern bool gameOver;
 
 void mainMenu()
 {
-    initGraphic();
+   // initGraphic();
     playSound(SOUND_START_SCREEN, 1);
 
     int logoX = 250;
