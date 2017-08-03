@@ -203,6 +203,26 @@ void  SnakeGame::loadMap(char *_dir){
 }
 
 void  SnakeGame::beginGame(){
+    cleardevice();
+    settextjustify(CENTER_TEXT, CENTER_TEXT);
+    settextstyle(BOLD_FONT, HORIZ_DIR, 6);
+    outtextxy(W/2, H/2 - 170,"INSTRUCTION");
+    settextstyle(SANS_SERIF_FONT, HORIZ_DIR, 4);
+    outtextxy(W/2, H/2 - 50, "THIS  IS  A  VERY  SIMPLE  GAME");
+    outtextxy(W/2, H/2 - 0,  "EAT  EVERYTHING");
+    outtextxy(W/2, H/2 + 50, "EXCEPT  ITS  TAIL");
+    outtextxy(W/2, H/2 + 100,"AND  THE  WALL");
+    Sleep(5000);
+    cleardevice();
+    outtextxy(W/2, H/2 - 100,"USE");
+    outtextxy(W/2, H/2 - 50, "W,  A,  S,  D");
+    outtextxy(W/2, H/2 - 0,  "OR");
+    outtextxy(W/2, H/2 + 50, "UP,  DOWN,  LEFT,  RIGHT");
+    outtextxy(W/2, H/2 + 100,"TO  CONTROL  THE  HUNGRY  SNAKE");
+    Sleep(5000);
+    cleardevice();
+    outtextxy(W/2, H/2 - 0,  "THE GAME BEGIN");
+    Sleep(1000);
     stopSound();    //stop all sound
     playSound("soundtrack\\Despacito.wav",1);
     cleardevice(); //remove screen
