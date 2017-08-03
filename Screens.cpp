@@ -40,26 +40,6 @@ void mainMenu()
     }
 }
 
-void playScreen ()
-{
-}
-
-void mapScreen()
-{
-}
-
-void aboutScreen()
-{
-}
-
-void resultScreen()
-{
-}
-
-void selectMenu()
-{
-}
-
 //------------------------------
 void gameOverScreen()
 {
