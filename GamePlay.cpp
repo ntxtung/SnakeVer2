@@ -197,13 +197,13 @@ void logic()
         //Dead effect //// BLINKING SCREEN////////////////
         cleardevice();
         Sleep(100);
-        drawScreen();
-        makePlayZone();
+//        drawScreen();
+//        makePlayZone();
         Sleep(300);
         cleardevice();
         Sleep(100);
-        drawScreen();
-        makePlayZone();
+//        drawScreen();
+//        makePlayZone();
         Sleep(300);
         cleardevice();
         /////////////// END OF EFFECT ///////////////////
@@ -216,14 +216,8 @@ void logic()
 //------------------------------
 void init()
 {
-    makePlayZone();
-    showScoreBoard();
-    score = 0; //reset score
-    tailX.clear(); //reset tailX
-    tailY.clear(); //reset tailY
-    tailX.insert(tailX.begin(),snakeX-1);
-    tailY.insert(tailY.begin(),snakeY);
-    foodSpawn(); //spawn first food
+//    makePlayZone();
+//    showScoreBoard();
 }
 //--------------------------------
 void cDraw()
@@ -247,11 +241,11 @@ void draw()
 
         snakeMove();    //change head of snake
         makeSnake();    //change head on matrix
-        drawScreen();   //draw screen
+//        drawScreen();   //draw screen
 
         //system("cls");
        // cDraw();
-        showScoreValue();
+//        showScoreValue();
 
         logic();
         deleteSnake();      //delete old head

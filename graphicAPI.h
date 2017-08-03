@@ -16,6 +16,8 @@ Draw square block at (x,y)
 */
 void drawBlock(int x, int y, fill_styles pattern, int color);
 
+void drawImage(int left, int top, int right, int bottom, char *fileName);
+
 void gradientStyle1 ();
 
 #endif

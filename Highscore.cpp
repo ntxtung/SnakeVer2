@@ -25,9 +25,9 @@ void outputHscore()
 void processHighScore()
 {
     inputHscore();
-    if (score > highscore)
+  //  if (score > highscore)
     {
-        highscore = score;
+//        highscore = score;
         outputHscore();
     }
 }

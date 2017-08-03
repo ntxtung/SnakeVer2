@@ -52,8 +52,7 @@ int   SnakeGame::getGameSpeed(){
     return this->gameSpeed;
 }
 
-void  SnakeGame::getKey2ChangeDirection()
-{
+void  SnakeGame::getKey2ChangeDirection(){
     SnakeDirection _snakeDirection = this->snake->getDirection();
     if (kbhit()) //Keyboard Hit
     {
@@ -221,11 +220,14 @@ void  SnakeGame::gameThread(){
 
         this->snake->move(); // move head to other position
 
-
         this->logic();
 
+        this->saveTail(oldPos);
         this->setZone(this->snake->getPosition(), ZONE_HEAD); // make new head in Zone
-        this->setZone(oldPos, ZONE_VOID); //delete old position
+
+        this->makeTail();
+
+        //this->setZone(oldPos, ZONE_VOID); //delete old position
            // this->drawScreen(); // draw ZONE // automated in setZone function
         delay(this->getGameSpeed()); // delay each of game frame
     }
@@ -246,18 +248,6 @@ void  SnakeGame::logic(){
 }
 
 void  SnakeGame::foodSpawn(){
-
-void  SnakeGame::saveTail(){
-    this->snake->tails.insert(tails.begin(), this->snake->getPosition());
-    //deleteTail
-    while ()
-    while (tailX.size()>numTails || tailY.size()>numTails)
-    {
-        zone[tailY[tailY.size()-1]][tailX[tailX.size()-1]] = 0;
-        tailX.pop_back();
-        tailY.pop_back();
-    }
-}
     point _snakePos = this->snake->getPosition();
     point _foodPos;
     do
@@ -268,5 +258,20 @@ void  SnakeGame::saveTail(){
     }
     while ( this->getZone(_foodPos) != 0); // || (foodX==snakeX && foodY==snakeY));
     this->setZone(_foodPos, ZONE_FOOD);
-    //cout << "FoodX = " << foodX << " foodY = " << foodY << endl;
+}
+
+void  SnakeGame::saveTail(point newTail){
+    this->snake->tails.insert(this->snake->tails.begin(), newTail);
+    //deleteTail
+    while (this->snake->tails.size() > this->snake->getTailLen())
+    {
+        vector<point> snakeTails = this->snake->getTails();
+        this->setZone(snakeTails[snakeTails.size()-1], ZONE_VOID);
+        this->snake->popTails();
+    }
+}
+
+void  SnakeGame::makeTail(){
+    for (int i=0; i < this->snake->tails.size(); i++)
+        this->setZone(this->snake->tails[i], ZONE_TAIL);
 }
