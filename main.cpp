@@ -24,7 +24,7 @@ int main()
     SnakeGame *game = new SnakeGame();
     game->loadMap("map\\map1.txt");
     game->beginGame();
-    cout << game->getZone(5,5);
+    //cout << game->getZone(5,5);
     getch();
     //snake.saveTails();
     return 0;

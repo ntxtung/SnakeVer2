@@ -10,7 +10,7 @@
 using namespace std;
 
 SnakeGame::SnakeGame(){
-    initGraphic();
+    //initGraphic();
     srand(GetTickCount());
     this->setSecureKey(rand()%10 + 1);
 }
@@ -39,7 +39,7 @@ int   SnakeGame::getScore(){
     return this->score;
 }
 void  SnakeGame::setScore(int _score){
-    this->score += _score;
+    this->score = _score;
     this->drawScoreValue();
 }
 void  SnakeGame::setSecureKey(int _val){
@@ -141,7 +141,7 @@ void  SnakeGame::drawPoint(int x, int y){
         drawBlock(scrX + x-1, scrY + y-1, SOLID_FILL, GREEN);
         break;
     case ZONE_FOOD: // Food
-        drawBlock(scrX + x-1, scrY + y-1, SOLID_FILL, BLUE);
+        drawBlock(scrX + x-1, scrY + y-1, SOLID_FILL, YELLOW);
         break;
     }
 }
@@ -209,6 +209,7 @@ void  SnakeGame::beginGame(){
     this->drawScoreBoard();
     this->drawScoreValue();
     this->gameOver = false;
+    this->foodSpawn(); // first food spawn
     this->gameThread();
 }
 
@@ -216,26 +217,43 @@ void  SnakeGame::gameThread(){
     while (!gameOver)
     {
         this->getKey2ChangeDirection();
-        this->setZone(this->snake->getPosition(), ZONE_VOID); //delete old position
+        point oldPos = this->snake->getPosition();
+
         this->snake->move(); // move head to other position
+
 
         this->logic();
 
         this->setZone(this->snake->getPosition(), ZONE_HEAD); // make new head in Zone
+        this->setZone(oldPos, ZONE_VOID); //delete old position
            // this->drawScreen(); // draw ZONE // automated in setZone function
         delay(this->getGameSpeed()); // delay each of game frame
     }
 }
 
-void  SnakeGame::logic()
-{
+void  SnakeGame::logic(){
     point _pos = this->snake->getPosition();
     int zoneStatus = this->getZone(_pos);
     if (zoneStatus == ZONE_FOOD) //EAT FOOD
     {
         this->setScore(this->getScore() + 10);
+        this->foodSpawn();
     }
     else
     if (zoneStatus == ZONE_WALL || zoneStatus == ZONE_TAIL)
         this->gameOver = true;
+}
+
+void  SnakeGame::foodSpawn(){
+    point _snakePos = this->snake->getPosition();
+    point _foodPos;
+    do
+    {
+        srand(_snakePos.x + _snakePos.y + _foodPos.x + _foodPos.y + GetTickCount()); //random seed {updated by HTML 31/7/17}
+        _foodPos.x = 1 + rand() % (playZoneW-1);
+        _foodPos.y = 1 + rand() % (playZoneH-1);
+    }
+    while ( this->getZone(_foodPos) != 0); // || (foodX==snakeX && foodY==snakeY));
+    this->setZone(_foodPos, ZONE_FOOD);
+    //cout << "FoodX = " << foodX << " foodY = " << foodY << endl;
 }
