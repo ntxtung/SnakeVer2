@@ -63,7 +63,7 @@
 
 1501591003 d:\github\snakever2\screens.h
 
-1501686481 source:d:\github\snakever2\screens.cpp
+1501763995 source:d:\github\snakever2\screens.cpp
 	<iostream>
 	<stdio.h>
 	"Declaration.h"
@@ -103,7 +103,7 @@
 	"Declaration.h"
 	"GraphicAPI.h"
 
-1501761326 source:d:\github\snakever2\main.cpp
+1501763787 source:d:\github\snakever2\main.cpp
 	"GraphicAPI.h"
 	"Develop.h"
 	"Screens.h"
@@ -140,9 +140,9 @@
 1501732621 source:d:\github\snakever2\food.cpp
 	"Classes.h"
 
-1501762376 source:d:\github\snakever2\highscore.cpp
+1501763939 source:d:\github\snakever2\highscore.cpp
 	"Highscore.h"
 
-1501761931 d:\github\snakever2\highscore.h
+1501763883 d:\github\snakever2\highscore.h
 	<fstream>
 

@@ -73,7 +73,6 @@ void selectMenu()
 //------------------------------
 void gameOverScreen()
 {
-    gameOver = true;
     fflush(stdin);
     cleardevice();
     int logoX=400;
@@ -82,9 +81,8 @@ void gameOverScreen()
     readimagefile(IMG_GAMEOVER, logoX, logoY, logoX + 176*2.5, logoY + 85*2.5);
 
     settextstyle(BOLD_FONT, HORIZ_DIR, 3);
-    outtextxy(620,500,"[Press any key to exit]");
+    outtextxy(620,500, TEXT_PRESSKEY);
 
     playSound(SOUND_GAMEOVER, 1);
     getch();
-
 }

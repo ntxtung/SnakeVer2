@@ -4,6 +4,12 @@ using namespace std;
 
 ifstream inf;
 ofstream ouf;
+
+struct ScoreSet{
+    char *name;
+    int score;
+};
+
 int highscore;
 
 void inputHscore()
@@ -22,7 +28,7 @@ void outputHscore()
     ouf.close();
 }
 
-void processHighScore()
+void processHighScore(int score)
 {
     inputHscore();
   //  if (score > highscore)

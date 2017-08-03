@@ -6,6 +6,7 @@
 #include "Classes.h" //included <vector>
 #include "GraphicAPI.h"
 #include "Sound.h"
+#include "Screens.h"
 
 using namespace std;
 
@@ -16,6 +17,7 @@ SnakeGame::SnakeGame(){
 }
 
 SnakeGame::~SnakeGame(){
+    gameOverScreen();
     //closegraph();
 }
 
@@ -210,6 +212,8 @@ void  SnakeGame::beginGame(){
     this->gameOver = false;
     this->foodSpawn(); // first food spawn
     this->gameThread();
+    //game over
+    delete this;
 }
 
 void  SnakeGame::gameThread(){
