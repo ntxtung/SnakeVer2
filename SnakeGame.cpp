@@ -48,7 +48,8 @@ void  SnakeGame::setSecureKey(int _val){
     this->secureKey = _val;
 }
 int   SnakeGame::setGameSpeed(int _gameSpeed){
-    this->gameSpeed = _gameSpeed;
+    if (_gameSpeed>=20 && _gameSpeed<=150)
+        this->gameSpeed = _gameSpeed;
 }
 int   SnakeGame::getGameSpeed(){
     return this->gameSpeed;
@@ -76,6 +77,12 @@ void  SnakeGame::getKey2ChangeDirection(){
         case 'w':
         case 'W':
             _snakeDirection = UP;
+            break;
+        case ',':
+            this->setGameSpeed(this->getGameSpeed()+10);
+            break;
+        case '.':
+            this->setGameSpeed(this->getGameSpeed()-10);
             break;
         }
         if (kbKey == 0 || kbKey == 224)
@@ -187,7 +194,6 @@ void  SnakeGame::loadMap(char *_dir){
             if (ch == '#' && ch != '\n')
                 this->setZone(c, r, 1);
         }
-
     }
     inFile.close();
     #ifdef DEBUG
@@ -206,20 +212,22 @@ void  SnakeGame::beginGame(){
     cleardevice();
     settextjustify(CENTER_TEXT, CENTER_TEXT);
     settextstyle(BOLD_FONT, HORIZ_DIR, 6);
+    getch();
     outtextxy(W/2, H/2 - 170,"INSTRUCTION");
     settextstyle(SANS_SERIF_FONT, HORIZ_DIR, 4);
     outtextxy(W/2, H/2 - 50, "THIS  IS  A  VERY  SIMPLE  GAME");
     outtextxy(W/2, H/2 - 0,  "EAT  EVERYTHING");
     outtextxy(W/2, H/2 + 50, "EXCEPT  ITS  TAIL");
     outtextxy(W/2, H/2 + 100,"AND  THE  WALL");
-    Sleep(5000);
+    getch();
     cleardevice();
     outtextxy(W/2, H/2 - 100,"USE");
     outtextxy(W/2, H/2 - 50, "W,  A,  S,  D");
     outtextxy(W/2, H/2 - 0,  "OR");
     outtextxy(W/2, H/2 + 50, "UP,  DOWN,  LEFT,  RIGHT");
     outtextxy(W/2, H/2 + 100,"TO  CONTROL  THE  HUNGRY  SNAKE");
-    Sleep(5000);
+    outtextxy(W/2, H/2 + 150,"PRESS  <  OR  >  TO  CHANGE  GAME  SPEED");
+    getch();
     cleardevice();
     outtextxy(W/2, H/2 - 0,  "THE GAME BEGIN");
     Sleep(1000);

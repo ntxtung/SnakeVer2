@@ -8,7 +8,7 @@
 
 using namespace std;
 
-extern bool gameOver;
+//extern bool gameOver;
 
 void mainMenu()
 {
@@ -43,8 +43,8 @@ void mainMenu()
 //------------------------------
 void gameOverScreen()
 {
-    fflush(stdin);
-    cleardevice();
+    //fflush(stdin);
+    cleardevice(); //clear the screen
     int logoX=400;
     int logoY=50;
 
@@ -54,5 +54,5 @@ void gameOverScreen()
     outtextxy(620,500, TEXT_PRESSKEY);
 
     playSound(SOUND_GAMEOVER, 1);
-    getch();
+    getch(); //wait key pressed
 }

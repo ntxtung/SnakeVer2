@@ -11,14 +11,15 @@
 int main()
 {
     //ShowWindow(FindWindowA("ConsoleWindowClass", NULL), false); // Dont open the console --> Just remove the comment when build the program
-    //FreeConsole(); // The same with ShowWindow
+
     initGraphic();
     while (1)
     {
         mainMenu();
         SnakeGame *game = new SnakeGame();
         int randomMap;
-        srand(time(NULL));
+
+        srand(GetTickCount());
         randomMap = rand() % 7 + 1;
 
         switch (randomMap)
@@ -53,5 +54,6 @@ int main()
         cleardevice();
     }
     closegraph();
+    //FreeConsole(); // The same with ShowWindow
     return 0;
 }

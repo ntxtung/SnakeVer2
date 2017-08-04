@@ -59,7 +59,7 @@ private:
     bool  gameOver = true;
     int   zone[playZoneH+1][playZoneW+1] = { {0} };
     int   score = 0;
-    int   gameSpeed = 100;
+    int   gameSpeed = 70;
     Snake *snake = new Snake(playZoneW/2, playZoneH/2);
     //
     void  setSecureKey(int _val);
