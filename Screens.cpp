@@ -20,8 +20,8 @@ void mainMenu()
     int order = 1;
     settextjustify(LEFT_TEXT, BOTTOM_TEXT);
     settextstyle(BOLD_FONT, HORIZ_DIR, 2);
-    outtextxy(10,H-30, TEXT_COPYRIGHT);
-    outtextxy(W-400,H-30, TEXT_MAJOR);
+    outtextxy(10,H-13, TEXT_COPYRIGHT);
+    outtextxy(W-400,H-13, TEXT_MAJOR);
     settextstyle(BOLD_FONT, HORIZ_DIR, 3);
     outtextxy(470,500, TEXT_PRESSKEY);
 

@@ -63,7 +63,7 @@
 
 1501556002 d:\github\snakever2\screens.h
 
-1501810178 source:d:\github\snakever2\screens.cpp
+1502866795 source:d:\github\snakever2\screens.cpp
 	<iostream>
 	<stdio.h>
 	"Declaration.h"
@@ -98,11 +98,11 @@
 1501764816 d:\github\snakever2\graphicapi.h
 	<graphics.h>
 
-1501764816 source:d:\github\snakever2\graphicapi.cpp
+1502380308 source:d:\github\snakever2\graphicapi.cpp
 	"Declaration.h"
 	"GraphicAPI.h"
 
-1501811278 source:d:\github\snakever2\main.cpp
+1502380646 source:d:\github\snakever2\main.cpp
 	"Screens.h"
 	"Classes.h"
 	"graphicAPI.h"
@@ -126,7 +126,7 @@
 	"Declaration.h"
 	<stdlib.h>
 
-1501811142 source:d:\github\snakever2\snakegame.cpp
+1502381231 source:d:\github\snakever2\snakegame.cpp
 	<fstream>
 	<iostream>
 	<windows.h>

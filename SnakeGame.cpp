@@ -250,16 +250,11 @@ void  SnakeGame::gameThread(){
     {
         this->getKey2ChangeDirection();
         point oldPos = this->snake->getPosition();
-
         this->snake->move(); // move head to other position
-
         this->logic();
-
         this->saveTail(oldPos);
         this->setZone(this->snake->getPosition(), ZONE_HEAD); // make new head in Zone
-
         this->makeTail();
-
         delay(this->getGameSpeed()); // delay each of game frame
     }
 }

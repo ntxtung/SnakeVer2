@@ -7,10 +7,12 @@
 #include <iostream>
 #include <time.h>
 
+#define release false
 
 int main()
 {
-    //ShowWindow(FindWindowA("ConsoleWindowClass", NULL), false); // Dont open the console --> Just remove the comment when build the program
+    if (release)
+        ShowWindow(FindWindowA("ConsoleWindowClass", NULL), false); // Dont open the console --> Just remove the comment when build the program
 
     initGraphic();
     while (1)
@@ -54,6 +56,8 @@ int main()
         cleardevice();
     }
     closegraph();
-    //FreeConsole(); // The same with ShowWindow
+
+    if (release)
+        FreeConsole(); // The same with ShowWindow
     return 0;
 }
